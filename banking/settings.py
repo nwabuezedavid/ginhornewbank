@@ -86,7 +86,7 @@ from urllib.parse import urlparse
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-tmpPostgres = urlparse('postgresql://neondb_owner:rh52ZWtFUyva@ep-fancy-sky-a5vr0buz.us-east-2.aws.neon.tech/neondb?sslmode=require')
+tmpPostgres = urlparse('postgresql://neondb_owner:npg_0jOnzJxr9UmI@ep-snowy-fog-a4xoqf2v-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require')
 
 DATABASES = {
     'default': {
