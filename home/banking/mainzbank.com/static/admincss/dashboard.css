@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  color: white;
+}
+
+:root {
+  --bg: rgb(1, 1, 36);
+  --bgw:white;
+  --bgt:rgb(133, 127, 127);
+  --bgt2:rgba(3, 19, 90, 0.493);
+  --brt:#dd2c2c;
+  --bgct:#4ae6c4;
+  --bx: linear-gradient(to right, #3d3dcf, #000035);
+}/*# sourceMappingURL=dashboard.css.map */
