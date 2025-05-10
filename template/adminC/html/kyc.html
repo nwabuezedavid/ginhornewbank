@@ -1,0 +1,60 @@
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/kyc.css'%}">
+   <link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+   {% endblock   %} 
+{% block adblock %}
+
+     
+ 
+
+    <main class="main__body">
+
+ 
+        <div class="main__body__s">
+            <div class="holder">
+                <div class="sec__sub">
+
+
+                    <span style="display: flex ;flex-direction: column;" >
+                        <label for="">DocumentS</label>
+                       <h3>{User{v.cardUser.user.username}}</h3>
+                       <h3> Nationality : {{v.Nationality}} </h3>
+                       <h3> City : {{v.City}} </h3>
+                       <h3> upload : {{v.Idname}} </h3>
+                       <h3> Address : {{v.AddressLine1}} </h3>
+                    </span>
+                    <span class="df pad" style="display: flex ; flex-direction: row; width: 100% ; align-items: center; justify-content: center; ">
+                        {% if  v.approved == False %}
+                        <a href="{% url 'approvedkyc' v.uuid %}"  class=" cap sub__detail cus" style=" padding: 12px ; background-color: rgb(0, 208, 255);  margin: 12px;">approved</a>
+                        {% endif %}
+                   <a href="{% url 'deletekyc' v.uuid %}" class="cap sub__detail cus" style=" padding: 12px ; background-color: rgb(206, 5, 5);  margin: 12px;">Delete</a>
+                   <a style=" padding: 12px ; background-color: rgb(21, 0, 255); width: fit-content;  margin: 12px;" href="javascript:history.go(-1)">
+                    <i class="bi bi-arrow-left "></i>
+                    <p>   Back </p>
+                </a></span>
+                <center >
+                    
+                    
+                  
+                        <div>
+                         <h1 class="cap"> KYC document  UPLOAD HERE</h1>
+                         <div>
+<small>Front</small>
+<img src="{{v.front}}" alt="" class="frontimg" style="width: 300px; height: 150px;">
+<small>Back</small>
+                             <img src="{{v.back}}" alt="" class="frontimg" style="width: 300px; height: 150px;">
+                         </div>
+                         <p class="mgtop" style="margin-top: 44px;">
+                            Date/time:{{v.date}}
+                         </p>
+                        
+                    
+                </center>
+            </div>
+            </div>
+        </div>
+    </main>
+    {% endblock adblock %}

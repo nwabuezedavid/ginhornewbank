@@ -1,0 +1,109 @@
+
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/kyc.css'%}">
+   {% endblock   %}
+{% block content %}
+
+
+
+<main class="main__body">   
+
+   {% include './head.html' %}
+        <div class="main__body__s">
+            <div class="holder">
+                <div class="sec__sub">
+
+                <span class="header fdffff">
+<a href="{% url 'Btcpay' user.uuid %}">New funding</a>
+<a href="{% url 'btchistory' user.uuid %}">Loan History</a>
+                </span>
+
+               
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <span>
+                        <label for="">Facility Amount</label>
+                        <input type="text" required placeholder="Enter to Deposit" name="amount">
+                    </span>
+                    <span>
+                        <label for="">crypto Type:</label>
+                        <select name="thecoin" id="" class="bselet df pad kfkf ">
+                            {% if btc %}
+                            {% for b in btc %}
+                            {% if b.active == True %}
+
+                            <option value="{{b.name}}" class="named">{{b.name}}</option>
+                            <option value="{{b.address}}" id="addres" class="" style="display: none;"></option>
+                            {% endif  %}
+                            {% endfor %}
+                            {% endif  %}
+                        </select>
+                    </span>
+                    <span>
+                        <label for="">wallet Address</label>
+                        <input type="text" readonly value="" name="wallet" class="wallet">
+                    </span>
+                    <span class="df ffd">
+                        <label for="">
+                            <p >
+
+                                payment Proof
+                            </p>
+                            <input required type="file" name="prof" id="prof">
+                            <input type="text" name="convertc" class="convert" hidden style="display: none;">
+                        </label> 
+                        <script>
+                            let fronfilr = document.querySelector('#prof')
+                            let fronytext = document.querySelector('.convert')
+                            fronfilr.addEventListener('change',()=>{
+                               const f = new FileReader()
+            
+            f.readAsDataURL(fronfilr.files[0]);
+            f.addEventListener('load',()=>{
+                const url = f.result
+                fronytext.value = url
+            })
+            
+            
+                            })
+                           
+                        </script>
+                    </span>
+                    
+                    <b class="mg pad cap col__red">make sure the proof is legit else your accound will be disabled </b>
+
+                    <button class="sub__detail cus cap ">Deposit request</button>
+                    <script>
+                        let bselet= document.querySelector('.bselet')
+                        let named= document.querySelectorAll('.named')
+                        let addres= document.querySelectorAll('#addres')
+                        let walletc= document.querySelector('.wallet')
+                        function callim() {
+                            addres.forEach((ex, ids) => {
+                                named.forEach((e, id) => {
+                                    if (id == ids & e.value == bselet.value ) {
+                                        walletc.value = ex.value
+                                        console.log(e.value);
+                                        console.log(ex.value);
+                                        console.log(bselet.id);
+                                    }
+                               });
+                               });
+                        }
+                        
+                        callim() 
+                        bselet.addEventListener('change', (exx)=>{
+                               let all =  ['{{btc}}']
+                              callim() 
+                        })
+                       
+                    </script>
+                </form>
+            </div>
+            </div>
+        </div>
+    </main>
+    {% endblock content %}

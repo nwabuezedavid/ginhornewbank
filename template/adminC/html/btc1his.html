@@ -1,0 +1,63 @@
+
+{% extends './base.html' %}
+{% load static %}
+{% block link  %}
+
+{% endblock link  %}
+
+
+{% block adblock %}
+        <div class="main__admin__users main__display">
+            
+            <span class="bi_head">
+                <h1>All Wallet </h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="bi bi-arrow-left "></i>
+                    <p>   Back </p>
+                </a>
+            </span>
+            
+            <div class="  main__form">
+                <input type="text" placeholder="Search Here...">
+                <div class="div__hoder">
+                    <b>User</b>
+                    <b>Crypto </b>
+                
+                    <b>date</b>
+                    
+                    
+                    
+                    <b>Statue</b>
+                </div>
+                {% if o %}
+                {% for t in  o %}
+                <span class="main__chide r" >
+                    <b>{{t.id}}</b>
+                    <b>{{t.name}}  </b>
+                    
+                    <b>{{t.date}}  </b>
+                  
+                    {% if t.active %}
+                    <b class="ic">Active</b>
+                    {% else %}
+                    <b class="iw">pending..</b>
+                    {% endif %}
+                    <small class="over_s">
+                        <img src="" alt="">
+                        <style>
+                            .over_s img{
+                                display: none !important;
+                            }
+
+                        </style>
+                        <a href="{% url 'deltex' t.id %}" title="delete {{t.name}}"><i class="bi bi-trash"></i></a>
+                        <a href="{% url 'approvedx' t.id %}"  title="Approved {{t.name}}"><i class="bi bi-file-check"></i></a>
+                        <a href="{% url 'createwalletedite' t.id %}" title="View {{t.name}} Wallet"><i class="bi bi-eye"></i></a>
+                    </small>
+                </span >
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+        {% endblock adblock %}

@@ -1,0 +1,46 @@
+
+{% extends './base.html' %}
+   {% load static %}
+
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/innerbanktransfer.css'%}">
+   {% endblock   %}
+{% block content %}
+
+
+
+
+    <main class="main__body">
+
+        {% include './head.html' %}
+        <div class="payment">
+
+            <main class="main__s">
+                <h1>{{i.name}} online banking transfer.</h1>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <span>
+                        <label for="">select Account</label>
+                    <select name="" id="">
+                        <option value="" class="upper">
+                                Savings Account ({{ user.Currency }})
+                            <p>Avaliable Balance {{ user.Currency }} {{user.balance}}.00</p>
+
+                        </option>
+                    </select>
+                    </span>
+                    <span>
+                        <label for="">Amount to transfer</label>
+
+                    <input type="number" min="5" required name="amount" id="" placeholder=" {{ user.Currency }} ">
+
+                    </span>
+                    <button class="defer wd bgxds">
+                        continue to the next
+                    </button>
+                </form>
+            </main>
+        </div>
+    </main>
+{% endblock content %}
+

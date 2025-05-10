@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit || Alert </title>
+</head>
+<body>
+    <section>
+        <center>{{i.name}}</center>
+        <div>
+            <span class="assd">
+
+                <h1>{{i.name}} TRANSCATION ALERT[{{a.statedecr}}:{{a.Currency}} {{a.amount}}]</h1>
+                
+                <p>
+                    Your transfer of {{a.Currency}}{{a.amount}} have been confirmed and the beneficiary is expected to  be credited with 5minutes. Your available {{i.name}} Acount balance is  <b>{{w.balance}}</b>
+                
+                </p>
+               
+            </span>
+            <center>
+                
+           
+            {% if a.statedecr == 'Debit' %} 
+            <span class="as" style="display:flex; flex-direction:column; padding:22px; height:100%;"
+       <b >Transfer Details: </b>
+       <i style="padding:12px;">Bank </i>
+       <big >{{a.bankname}}</big>
+       <i style="padding:12px;">Account Number  </i>
+       <big>{{a.accountnumber}}</big>
+       <i style="padding:12px;">Account Name </i>
+       <big> {{a.holdername}}</big>
+       <i style="padding:12px;">Amount     </i>
+       <big>{{a.amount}}</big>
+
+            </span>
+             </center>
+
+            {% else  %}
+            <span class="as" style="display:flex; flex-direction:column; width:100%;padding:12px;">
+       <b>Transfer Details: </b> 
+       <i style="padding:12px;">Bank </i>
+       <big>{{i.name}}</big>
+       <i style="padding:12px;">Account Number  </i>
+       <big>{{w.AccountNUm}}</big>
+       <i style="padding:12px;">Account Name    </i>
+       <big> {{w.user.username}}</big>
+       <i style="padding:12px;">Amount     </i>
+       <big>{{a.amount}}</big>
+
+            </span>
+            {% endif  %}
+
+        </div>
+        <big>
+            <p>for further enquires,please contact our customer care service support</p>
+            <i>Thanks For Choosing Us</i>
+        </big>
+    </section>
+    <style>
+        .assd{
+            display: flex;flex-direction: column;
+            width: 100%;
+            padding: 12px;
+        }
+        .assd >*{
+            margin-top: 9px;
+        }
+        .as{
+            display: flex;flex-direction: column;
+            padding: 12px;
+        }
+        .as b{
+            font-size: x-large;
+            text-transform: capitalize;
+        }
+        .as i{
+            font-weight: bolder;
+            margin: 5px;
+        }
+        .image{
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        img{
+            width: 50px;
+            height: 100%;
+
+        }
+        *{
+            margin: 0; 
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: aliceblue;
+            height: 100vh;
+            width: 100%;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }section{
+            min-height: 60%;
+            background-color: white;
+            padding: 22px;
+            display: flex;
+            width: 70%;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+        h1{
+            text-transform: uppercase;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/kyc.css'%}">
+   <link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+   {% endblock   %} 
+{% block adblock %}
+
+     
+ 
+
+    <main class="main__body">
+
+ 
+        <div class="main__body__s">
+            <div class="holder">
+                <div class="sec__sub">
+
+
+                    <span style="display: flex ;flex-direction: column;" >
+                        
+                       <h3>Amount:  USD{{v.amount}}</h3>
+                    </span>
+                <center >
+                    
+                    
+                    <span class="df pad" style="display: flex ; flex-direction: row; width: 100% ; align-items: center; justify-content: center; ">
+                        
+                        <a href="{% url 'approvedcheck' v.id %}" class=" cap sub__detail cus" style=" padding: 12px ; background-color: rgb(0, 208, 255);  margin: 12px;">approved</a>
+                   <a href="{% url 'deletecheck' v.id %}" class="cap sub__detail cus" style=" padding: 12px ; background-color: rgb(206, 5, 5);  margin: 12px;">Delete</a>
+                    </span>
+                        <div>
+                         <h1 class="cap"> Check Deposite =>  UPLOAD HERE</h1>
+                         <div>
+<small>Front</small>
+<img src="{{v.back}}" alt="" class="frontimg" style="width: 300px; height: 150px;">
+<small>Back</small>
+                             <img src="{{v.front}}" alt="" class="frontimg" style="width: 300px; height: 150px;">
+                         </div>
+                         <p class="mgtop" style="margin-top: 44px;">
+                            Date/time: {{v.date}}
+                         </p>
+                    
+                  
+                    
+                </center>
+            </div>
+            </div>
+        </div>
+    </main>
+    {% endblock adblock %}

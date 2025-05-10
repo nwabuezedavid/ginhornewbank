@@ -1,0 +1,61 @@
+
+
+
+
+    {% extends './base.html' %}
+    {% load static %}
+
+    {% block link  %}
+    <link rel="stylesheet" href="{% static '/dashboardCSS/innerbanktransfer.css'%}">
+    {% endblock   %}
+ {% block content %}
+
+
+
+ <main class="main__body">
+
+    {% include './head.html' %}
+        <div class="payment">
+
+            <main class="main__s">
+                <h1>GX bank transfer.</h1>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <span>
+                        <label for="">select Account</label>
+                    <select name="" id="">
+                        <option value="" class="upper">
+                                {{user.typeAcc}} Account ({{user.Currency}})
+                            <p>Avaliable Balance {{user.Currency}} {{user.balance}}</p>
+
+                        </option>
+                    </select>
+                    </span>
+                    <span>
+                        <label for="">{{i.name}} Account Number</label>
+
+                    <input type="number" required  name="account" id="" placeholder="Enter Account Number">
+
+                    </span>
+                    <span>
+                        <label for="">Transcation pin</label>
+
+                    <input type="number" maxlength="4" required  name="pin" id="" placeholder="Enter Account Pin">
+
+                    </span>
+                    <span>
+                        <label for="">Amount to transfer</label>
+
+                    <input type="text" required min="5" name="amount" id="" placeholder="{{user.Currency}}">
+
+                    </span>
+                    <button class="defer wd bgxds">
+                        continue to the next
+                    </button>
+                </form>
+            </main>
+        </div>
+    </main>
+</section>
+
+{% endblock content %}

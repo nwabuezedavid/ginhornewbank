@@ -1,0 +1,49 @@
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/kyc.css'%}">
+   <link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+   {% endblock   %} 
+{% block adblock %}
+
+     
+ 
+
+    <main class="main__body">
+
+ 
+        <div class="main__body__s">
+            <div class="holder">
+                <div class="sec__sub">
+
+
+                    <span style="display: flex ;flex-direction: column;" >
+                        <label for="">USER NAME</label>
+                       <h3>NWABUEZEDAVID</h3>
+                       <h3>Btc Address: lioh098ywn308yn</h3>
+                    </span>
+                <center >
+                    
+                    
+                  
+                        <div>
+                         <h1> PAYMENT PROOF UPLOAD HERE</h1>
+                         <img src="{% static '/assets/assets/logo.png' %}" alt="" class="frontimg" style="width: 80%; height: 150px;">
+                         <p>
+                            Date/time:23.20.20034
+                         </p>
+                    <span class="df pad" style="display: flex ; flex-direction: row; ">
+                        
+                        <a href="" class=" cap sub__detail cus" style=" padding: 12px ; background-color: rgb(0, 208, 255);  margin: 12px;">approved</a>
+                   <a href="" class="cap sub__detail cus" style=" padding: 12px ; background-color: rgb(206, 5, 5);  margin: 12px;">Decline</a>
+                   <a href="{% static '/assets/assets/logo.png' %}" class="cap sub__detail cus" style=" padding: 12px ; background-color: rgb(5, 38, 206);  margin: 12px;">View Img</a>
+                   <a href="" download="{% static '/assets/assets/logo.png' %}" class="cap sub__detail cus" style=" padding: 12px ; background-color: rgb(206, 5, 5);  margin: 12px;">download</a>
+                    </span>
+                    
+                </center>
+            </div>
+            </div>
+        </div>
+    </main>
+    {% endblock adblock %}

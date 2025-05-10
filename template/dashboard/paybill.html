@@ -1,0 +1,61 @@
+
+
+{% extends './base.html' %}
+{% load static %}
+     
+{% block link  %}
+<link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+{% endblock   %}
+{% block content %}
+
+
+
+<main class="main__body">   
+
+{% include './head.html' %}
+
+        <div class="main__holders">
+
+
+{% include './whead.html' %}
+
+<big style="padding: 12px; font-size: x-large; color: rgba(240, 248, 255, 0.818);" class="upper">withdraw fund </big>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <span>
+        <label for="">Choose Payment Accont  </label>
+        <select name="" id="">
+            <option value=""> available <i class="bi bi-currency-exchange"></i> Balance is ${{user.balance}}</option>
+        </select>
+    </span>
+    <span>
+        <label for="">select Account </label>
+        <select name="account" id="" required>
+            <option value="" > Select a Withdrawal Acoount </option>
+            {% if withto %}
+            {% for i in withto %}
+            <option value="{{i.uuid}}" style="background: transparent !important; color: black;">Account to withdrawal to  {{i.name}} </option>
+            {% endfor  %}
+            {% endif  %}
+        </select>
+    </span>
+   
+   
+    <span>
+        <label for="">Amount</label>
+        <input type="number" name="amount" placeholder="Enter Amount ">
+    </span>
+    <span>
+        <label for="">Comment (optional)</label>
+        <input type="text" name="dis" placeholder="...... ">
+    </span>
+   
+    <button type="submit" >Send </button>
+</form>
+
+
+
+        </div>
+    </main>
+    {% endblock content %}

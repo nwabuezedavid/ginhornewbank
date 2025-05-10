@@ -1,0 +1,90 @@
+
+{% extends './base.html' %}
+   {% load static %}
+   {% load humanize %}
+
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/pending.css'%}">
+   {% endblock   %}
+{% block content %}
+
+    
+ 
+
+    <main class="main__body">
+
+        {% include './head.html' %}
+        <div class="main__bbd">
+            <form action="" method="post">
+{% csrf_token %}
+                <input type="search" name="p" id="" placeholder="Search here......">
+            </form>
+
+
+            <div class="pending">
+                <span>
+                    <b>ref</b>
+                    <b>type</b>
+                   
+                    <b>amount</b>
+                    <b>date</b>
+                    <b>description</b>
+                    <b>status</b>
+                </span>
+                {% if d %}
+                {% for d in d%}
+                <span class="___main__display">
+                {% if d.disc == 'Domestic Transfer' %}
+                <small><a href="{% url 'successful2' d.uuid %}">GXB/{{d.uuid}}</a> </small>
+                {% else %}
+                <small><a href="{% url 'successful' d.uuid %}">GXB/{{d.uuid}}</a> </small>
+                {% endif %}
+                    
+                    <small>{{d.statedecr}}</small>
+                    
+                    <small>USD {{d.amount|intcomma}}</small>
+                    <small>{{d.date}}</small>
+                    <small>{{d.disc}}</small>
+                    {% if d.approved == True %}
+                    <small class="ic" style="color: cadetblue;">completed</small>
+                    {% else %}
+                    <small class="iw" style="color: brown;">processing....</small>
+
+                    {% endif%}
+
+                </span>
+                {% endfor %}
+                {% endif  %}
+                {% if b %}
+                {% for d in b %}
+                <span class="___main__display">
+               
+                <small><a href="">{{d.uuid}}</a> </small>
+                
+                
+                    
+                    <small>{{d.statedecr}}</small>
+                    
+                    <small>{{user.Currency}} {{d.amount}}</small>
+                    <small>{{d.date}}</small>
+                    <small>{{d.disc}}</small>
+                    {% if d.approved == True %}
+                    <small class="ic" style="color: cadetblue;">completed</small>
+                    {% else %}
+                    <small class="iw" style="color: brown;">processing....</small>
+
+                    {% endif%}
+
+                </span>
+                {% endfor %}
+                {% endif  %}
+            </div>
+            <span class="df">
+                <a class="pd mg cap col__red"> perv</a>
+                <a class="pd mg cap col__red">next</a>
+            </span>
+        </div>
+    </main>
+</section>    
+
+{% endblock content %}

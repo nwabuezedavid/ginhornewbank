@@ -1,0 +1,57 @@
+{% load static %}
+{% load humanize %}
+
+<div class="head df wd pad btw" >
+
+    <span class="df">
+    <i class="bi bi-justify  btn__open"  ></i>
+    <p class="btn___p">
+    </p>
+
+    </span>
+
+    <div class="r df allcenter charsetholder">
+    <i class="bi bi-envelope box__in pad rod " style="visibility: hidden;"> <b class="col__red">0</b></i>
+    <img src="{% static '/assets/assets/main/imges/5v.jpeg'%}" alt="">
+    <small>
+        <p>connected</p>
+        <b>{{request.user.username}}</b>
+    </small>
+    <div class="a shotcut">
+    <big class="df dv">
+        <img src="{% static '/assets/assets/main/imges/5v.jpeg'%}" alt="">
+    <span>
+    <b>{{request.user.username}}</b>
+    <i>{{request.user.phone }}</i>
+    </span>
+    </big>
+
+    <span class="dv2">
+    <b>{{user.typeAcc}} account </b>
+    <strong><sub>{{user.Currency}}</sub>{{user.balance|intcomma}} </strong>
+    <article style="font-size: medium; color: rgb(255, 40, 40); font-size: smaller;"> Account Number:<b  style="font-weight: lighter ; color: rgb(246, 246, 246); flex: 1; display: flex; font-size: medium; cursor: copy;">  {{user.AccountNUm}}</b></article>
+    <a href="">
+        <p>transfer fund </p>
+        <i class="bi bi-forward"></i>
+    </a>
+    </span>
+    <span class="dv3">
+
+    <a href="{% url 'profile' user.uuid %}">
+        <p>view profile</p>
+        <i class="bi bi-person"></i>
+    </a>
+    <a href="{% url 'security' user.uuid %}">
+        <p>account setting</p>
+        <i class="bi bi-gear"></i>
+    </a>
+
+    <a href="{% url 'logoutUser' %}">
+        <p>logout</p>
+        <i class="bi bi-toggle-off"></i>
+    </a>
+    </span>
+    </div>
+    </div>
+        </div>
+  <iframe style="width: 100%; height: 100px; background-color: transparent !important;" src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=1,2,3,5,14,20&d_mode=compact-name" frameborder="0"></iframe>

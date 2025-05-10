@@ -1,0 +1,43 @@
+
+    {% extends './base.html' %}
+    {% load static %}
+    {% block link  %}
+<link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css' %}">
+
+    {% endblock link  %}
+    
+    
+    {% block adblock %}
+
+        <div class="main__holders">
+
+
+<div class="sec_32_h">
+
+{% include './whead.html' %}
+
+</div>
+<form action="" method="post">
+{% csrf_token %}
+    <span>
+        <label for="">Crypto Name</label>
+        <input type="text" name="name" placeholder="Crypto Name ">
+    </span>
+    <span>
+        <label for="">Crypto Wallet</label>
+        <input type="text" name="wallet" placeholder="Crypto Wallet ">
+    </span>
+   
+   
+   
+   
+    
+    
+   
+    <button type="submit" >Creat    </button>
+</form>
+
+
+
+        </div>
+        {% endblock adblock %}

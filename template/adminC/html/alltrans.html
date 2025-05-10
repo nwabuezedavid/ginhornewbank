@@ -1,0 +1,75 @@
+
+{% extends './base.html' %}
+{% load static %}
+{% block link  %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+{% endblock link  %}
+
+
+{% block adblock %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+        <div class="main__admin__users main__display">
+            
+            <span class="bi_head">
+                <h1>All Transcations </h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="bi bi-arrow-left "></i>
+                    <p>   Back </p>
+                </a>
+            </span>
+            
+            <div class="  main__form">
+                <a href="{% url 'allptrandeleteall' i.uuid %}" class="pad col__red">Delete All</a>
+                <input type="text" placeholder="Search Here...">
+                <div class="div__hoder">
+                    <b>id</b>
+                    <b>Amount</b>
+                    <b>type</b>
+                    
+                    
+                    <b>Date/time</b>
+                    <b>Statue</b>
+                </div>
+                {% if t %}
+                {% for t in  t %}
+                <span class="main__chide r flex  !bg-white !text-black !flex-col p-2 !h-fit " >
+                    <style>
+                        .main__chide b{
+                            word-wrap: break-word;
+                            word-break: break-all;
+                            color: black !important;
+                        }
+                    </style>
+                    <div class="!w-full !justify-between  flex  max-sm:*:text-[80%]  flex-1" >
+
+                        
+                        <b>GXB/{{t.uuid}}</b>
+                        <b>{{t.amount}} USD </b>
+                    <b>{{t.statedecr}}  </b>
+                    <b>{{t.date}}</b>
+                    {% if t.approved %}
+                    <b class="ic">Active</b>
+                    {% else %}
+                    <b class="iw">pending..</b>
+                    {% endif %}
+                </div>
+                    <small class="*:mr-[2%] max-md:flex max-md:!justify-between !relative  !bg-black !w-[40%] !relative  !bg-black max-md:!w-full !mt-3">
+                        
+                        
+                        <a href="{% url 'allptrandelete' t.uuid  i.uuid %}" title="delete Account">Delete</a>
+                        <a href="{% url 'adminauthedit' t.uuid %}"title="Edit">edit</a>
+                        {% if t.approved == True %}
+                        <a href="{% url 'alldisptranapproved' t.uuid  i.uuid %}" title="disApprove ">disApprove</a>
+                         {% else %}
+                         <a href="{% url 'allptranapproved' t.uuid  i.uuid %}" title="Approve ">Approve</a>
+                         {% endif %}
+                    </small>
+                </span >
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+        {% endblock adblock %}

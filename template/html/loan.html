@@ -1,0 +1,48 @@
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/css/about.css' %}">
+   {% endblock   %}
+{% block content %}
+
+
+
+
+
+    <section class="inf r">
+<main class="inf fv "></main>
+
+<main class="a slideView">
+<h3>Loans</h3>
+<small>Competitive rates for a wide variety of personal needs:</small>
+<p>-VEHICLE REPAIRS OR UPDATES</p>
+<p>LOCAL DECISION-MAKING AND PROCESSING</p>
+<p>ATTENTIVE, FRIENDLY SERVICE FROM START TO FINISH</p>
+<big>
+Requesting For Loan
+</big>
+</main>
+    </section>
+
+
+
+
+
+    <section class="abouthome">
+<div>
+    <b>Loans & Credit</b>
+    <p class="mg ">When your business needs funds to grow, Mallory Cooperative Bank, has the answer. We offer several business loan options to help meet your particular financial situation. Whether you require a one-time disbursement of funds for general growth, or if your need is specific to equipment or real estate, we have the solution.</p>
+<p class="mg ">We offer a choice of competitive rates, market-leading systems and top-quality service, designed to offer you more choice.</p>
+<p class="mg ">We pride ourselves as being a bank that welcomes customers from all locations and origins with the promise that you will be treated fairly, consistently and professionally, with individual service being an absolute priority.</p>
+
+</div>
+<img src="{% static '/assets/assets/main/imges/d.jpg' %}" alt="">
+    </section>
+  
+<center class="mg">
+    <h1 class="mg">Personal Loans</h1>
+   
+    <p>Whether it’s a sudden expense or just vacation to get away from everything, {{i.name}} can make it happen. Renovate your home, buy a new computer, or pay off your credit cards — anything’s possible with a personal loan. Let one of our loan experts customize a loan just for you.</p>
+</center>
+{% endblock content %}

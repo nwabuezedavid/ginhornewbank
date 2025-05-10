@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Sent Successfully</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .mail-seccess {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("https://img.freepik.com/premium-vector/blue-abstract-background_285281-82.jpg?w=900") no-repeat center center;
+            background-size: cover;
+            padding: 0 15px;
+        }
+        .success-inner {
+            background-color: rgba(4, 0, 17, 0.8);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .success-inner h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .success-inner h1 i {
+            font-size: 3rem;
+            margin-right: 10px;
+        }
+        .success-inner h1 span {
+            font-size: 1.2rem;
+            display: block;
+            font-weight: 600;
+        }
+        .success-inner p {
+            font-size: 1rem;
+            margin: 20px 0;
+            color: #f0f0f0;
+            line-height: 1.5;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            color: #ffffff;
+            background-color: #ff0000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            background-color: #a30000;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <section class="mail-seccess">
+        <div class="success-inner">
+            <h1><i class="fa fa-envelope"></i><span>Mail Sent Successfully!</span></h1>
+            <p>In order to activate your account, you need to click the activation link sent to your email. It will expire within 24 hours.</p>
+            <a href="/" class="btn">Go Home</a>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+{% extends './base.html' %}
+{% load static %}
+
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/innerbanktransfer.css'%}">
+   {% endblock   %}
+{% block adblock %}
+
+    
+ 
+
+    <main class="main__body">
+
+        <div class="payment">
+            <span>
+    
+            </span>
+            <main class="main__s">
+                <h1>GX bank online banking Fund Account.</h1>
+                <form action="" method="post" class="paymentForm" >
+                    {% csrf_token %}
+                    <span>
+                        <label for="">User Account</label>
+                    <select name="Account" id="" required>
+                        <option value=""> ---- Select Account ----</option>
+                        {% if o %}
+                        {% for o in o %}
+                        <option value="{{o.uuid}}" class="upper">
+                               
+                            <p>User: {{o.user.username}} -  balance: {{o.currency}} {{o.balance}}.00</p>
+                        
+                        </option>
+                        {% endfor %}
+                        {% endif %}
+                    </select>
+                    </span>
+                    <span>
+                        <label for="">TYPE</label>
+                    <select name="Type" id="" required>
+                        <option value=""> ---- Select Type ----</option>
+
+                        <option value="Credit" class="upper">
+                             Credit
+                        </option>
+                        <option value="Dedit" class="upper">
+                             Dedit
+                        </option>
+                    </select>
+                    </span>
+                    <input type="text" hidden value="{{csrf_token}}" class="tokenx" >
+                    <span>
+                        <label for="">Amount</label>
+              
+                    <input type="text" required min="1000" class="amount"  name="amount" id="amount" placeholder="USD">
+                    <small>
+                        <p>Minimum :</p>
+                        <b>1000 USD</b>
+                        
+                    </small>
+                </span>
+                    <span class="mg-top" style="margin-bottom: 22px;">
+                        <label for="">Description(required)</label>
+              
+                    <input type="text" required  class="amount"  name="dis" id="amount" placeholder="Write Here..">
+                    
+                </span>
+                <button type="submit" class="defer wd bgxds "   >
+                        PAY  
+                    </button>
+                   
+                    
+                </form>
+            </main>
+        </div>
+    </main>
+   
+    {% endblock adblock %}
+

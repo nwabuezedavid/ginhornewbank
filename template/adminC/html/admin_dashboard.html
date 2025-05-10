@@ -1,0 +1,86 @@
+{% extends './base.html' %}
+{% block link  %}
+{% endblock link  %}
+
+
+{% block adblock %}
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+        <div class="main__admin__users">
+            <span class="bi_head">
+                <h1>Manage Users Account </h1>
+                <a href="">
+                    <p>Open an Account </p>
+                    <i class="bi bi-person "></i>
+                </a>
+            </span>
+            <big class="semi__head">
+
+                <h2>Register Users  </h2>
+                <small>Below is the list of registered Users and the other information</small>
+            </big>
+            <div class="main__form">
+                <input type="text" placeholder="Search Here...">
+                <div class="div__hoder">
+                    <b>fullname</b>
+                    <b>password</b>
+                    <b>Pin</b>
+                    <b>balance </b>
+                    <b>Account number</b>
+                    <b>verify</b>
+                    <b>Date register</b>
+                    <b>Statue</b>
+                </div>
+                {% for i in userad %}
+                <span class="main__chide r flex !w-full  !bg-white !text-black !flex-col p-2 !h-fit " >
+                    <style>
+                        .main__chide b{
+                            word-wrap: break-word;
+                            word-break: break-all;
+                            color: black !important;
+                        }
+                    </style>
+                    <div class="!w-full !justify-between max-sm:*:text-[60%]   flex   flex-1" >
+
+                        <b>{{i.user.username}}</b>
+                        <b> <i class="bi bi-key"></i> {{i.password}}</b>
+                        <b>{{i.Pin}} </b>
+                        <b>{{i.balance}} USD</b>
+                        <b>{{i.AccountNUm}}</b>
+                        <b><i class="bi bi-exclamation-circle ic"></i>{{i.user.email}}</b>
+                        <b class="ic">Active</b>
+                    </div> 
+                    <small class="*:mr-[2%] !relative max-md:flex max-md:!justify-between !bg-black !w-[40%] !relative  !bg-black max-md:!w-full !mt-9">
+                        <a href="{% url 'deleteuserc' i.uuid %}" class="hover:text-red-400 hidden !hidden" title="Delete Account" onclick="navigateOnDoubleClick(event, '{% url 'deleteuserc' i.uuid %}')">Delete</a>
+                <a href="{% url 'adminauthdisable' i.uuid %}" class="hover:text-red-400" title="Account Status" onclick="navigateOnDoubleClick(event, '{% url 'adminauthdisable' i.uuid %}')">
+                    {% if i.disabled %}
+                    Activate Account
+                    {% else %}
+                    Block Account
+                    {% endif %}
+                </a>
+                <a href="{% url 'adminauthverified' i.uuid %}" class="hover:text-red-400" title="Account Verification Status" onclick="navigateOnDoubleClick(event, '{% url 'adminauthverified' i.uuid %}')">
+                    {% if i.approved %}
+                    Unverify
+                    {% else %}
+                    Verified
+                    {% endif %}
+                </a>
+                <a href="{% url 'funuser' i.uuid %}" class="hover:text-red-400" title="Fund Account" onclick="navigateOnDoubleClick(event, '{% url 'funuser' i.uuid %}')">Fund Account</a>
+                </small>
+                </span >
+                {% endfor  %}
+
+            </div>
+<script>
+        function navigateOnDoubleClick(event, url) {
+            if (event.detail === 2) { // Double-click detected
+                window.location.href = url;
+            }
+        }
+    </script>
+        </div>
+    </main>
+{% endblock adblock %}

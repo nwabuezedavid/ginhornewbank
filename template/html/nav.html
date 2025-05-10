@@ -1,0 +1,32 @@
+{% load static %}
+<section class="wd  row ">
+
+    <div class="wd df row  pad nav">
+<img src="{{i.logo}}" alt="" class="logo ">
+        <span>
+    
+        <ul>
+        <a href="/">HOME</a>
+        <a href="{% url 'about' %}">  ABOUT US </a>
+        <li class="carryo">
+            <small>PRODUCT <i class="bi bi-chevron-down"></i></small>
+    
+            <span>
+                <a href="{% url 'loan' %}">LOAN</a>
+                <a href="{% url 'transfers' %}">TRANSFER</a>
+            </span>
+        </li>
+        <a href="{% url 'contact' %}"> CONTACT US</a>
+        </ul>
+    
+        <a href="{% url  'loginuser' %}" class="acess">ACCESS ACCOUNT </a>
+        <i class="bi bi-justify df pad white__bg h__fit cus selfcenter toggle_bar"></i>
+        </span>
+         
+    </div>
+
+
+
+    
+    
+        </section>

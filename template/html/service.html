@@ -1,0 +1,65 @@
+
+
+{% extends './base.html' %}
+   {% load static %}
+
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/css/service.css' %}">
+   {% endblock   %}
+{% block content %}
+
+
+
+
+
+    <section class="inf r">
+<main class="inf fv "></main>
+
+<main class="a slideView">
+<h1 class="ds">CONTACT US   <b class="bx pad ">{{i.name}} </b>  </h1>
+<h3>your ally is achieving ambition beyond border.</h3>
+
+<big>
+<a href="">
+
+    <i class="bi bi-twitter fz"></i>
+</a>
+<a href="">
+
+    <i class="bi bi-facebook fz"></i>
+</a>
+<a href="">
+
+    <i class="bi bi-telegram fz"></i>
+</a>
+</big>
+</main>
+    </section>
+
+
+
+
+
+    <section class="contact">
+<div class="head">
+    <b>get in torch with us</b>
+    
+</div>
+<main>
+    <form action="" method="post">
+{% csrf_token %}
+        <input type="text" placeholder="Enter your name " >
+        <input type="email" placeholder="Enter your Email " >
+        <input type="number" placeholder="Enter your Phone Number " >
+
+        <input type="text" placeholder="Enter your message" >
+        <button type="submit" class="df pad wd btn" onclick="alert('sent successfully ')">SEND </button>
+    </form>
+</main>
+    </section>
+
+
+
+
+
+    {% endblock  %}

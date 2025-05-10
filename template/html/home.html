@@ -1,0 +1,153 @@
+
+
+{% extends './base.html' %}
+   {% load static %}
+
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/css/home.css' %}">
+   {% endblock   %}
+{% block content %}
+
+
+    <section class="inf r">
+<main class="inf fv "></main>
+
+<main class="a slideView">
+<h1 class="ds">Welcome !! to <b class="bx pad "> <span class="col__white ">{{i.name}}</span> </b>  </h1>
+<h3>Where we offer finiancial inclusion for all</h3>
+<small> {{i.name}} continues  to offer diverse finiancial products through our many lines</small>
+<big>
+<h2 class="cus" onclick="()=>{alert('sjd')}">open account now !!</h2>
+
+</big>
+</main>
+    </section>
+
+    <iframe style="width: 100%; mx-height: 130px; background-color: transparent !important; margin: 0; padding: 0;" src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=1,2,3,5,14,20&d_mode=compact-name" frameborder="0"></iframe>
+
+
+
+
+
+<section class="about">
+
+    <div class="img mgt" style="margin-top: 33px;">
+
+        <span class="overlay  d bx2"></span>
+            <img class="mainimg d bx2" src="{% static 'assets/assets/main/imges/about2.jpeg' %}" alt="">
+    </div>
+    <div class="main-s">
+        <h3>introducing  {{i.name}}</h3>
+        <h1>{{i.name}}</h1>
+        <p>{{i.name}}is a financial intermediary that offers
+loans and deposits, and payment services and continues to serve  the finiancial needs of individual ,farmers  business, and industries by offering the
+            traditional service, as well as online,mobile and telephone service.
+        </p>
+
+    </div>
+</section>
+
+
+<section class="service">
+    <div class="sec">
+
+        <h3>our service </h3>
+        <big><b>best solutions </b> <i>for your business</i></big>
+    </div>
+
+<main>
+    <style>
+        .inf .slideView {
+    display: flex;
+    width: 100%;
+    background: url("https://img.freepik.com/free-vector/global-virtual-currency-sign-techno-concept-background-design_1017-52482.jpg?size=626&ext=jpg&ga=GA1.1.753374989.1717678999&semt=ais_hybrid");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: flex-end;
+    padding: 12px;
+    background-blend-mode: darken;
+    padding-bottom: 9%;
+}
+    </style>
+
+    <div>
+        <i class="bi bi-safe"></i>
+        <b>secure transactions</b>
+        <p>very secured and supervised means to save , invest and transfer your funds at full guarantee.</p>
+    </div>
+    <div>
+        <i class="bi bi-coin"></i>
+        <b>Real Estate</b>
+        <p>Invest in the Real Estate Industry, the Fastest and largest income generator. {{i.name}} gives you this superior and unique edge.</p>
+    </div>
+    <div>
+        <i class="bi bi-person"></i>
+        <b>Digital Assets</b>
+        <p>Digital assets, like bitcoin, are an emerging asset class for investors.Our digital asset fund offers investors exposure to bitcoin and other assets.</p>
+    </div>
+    <div>
+        <i class="bi bi-bank"></i>
+        <b>Quick Loans</b>
+        <p>We have great loan offers to help meet your needs with very low interest rates. Also available to every one regardless of your status.</p>
+    </div>
+</main>
+
+
+
+
+</section>
+
+
+
+<section class="stra">
+    <big class="fw"><i>see our </i> <b> successful strategies</b></big>
+
+    <main class="main___con">
+        <div class="main__view r">
+            <img src="{% static 'assets/assets/main/imges/h1.jpeg' %}" alt="">
+
+            <span class="a">
+               <br> choose from the checking options that allows you to  earn intreset avold fees and easily manage your account </span>
+
+        </div>
+
+        <div class="main__view r">
+            <img src="{% static 'assets/assets/main/imges/about.jpeg' %}" alt="">
+            <span class="a"> save fo your goals and watch your money grow with a CD, a money market account , a savings account , your future starts now!! </span>
+
+        </div>
+        <div class="main__view r">
+            <img src="{% static 'assets/assets/main/imges/about2.jpeg' %}" alt="">
+            <span class="a"> take charge of your business with a business bank account , service includes virtual card , team management and more..... </span>
+
+        </div>
+        <div class="main__view r">
+            <img src="{% static 'assets/assets/main/imges/5v.jpeg' %}" alt="">
+            <span class="a"> secure and  fast  Payment gateway for businesses  </span>
+
+        </div>
+    </main>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock  %}

@@ -1,0 +1,34 @@
+{% extends './base.html' %}
+{% load static %}
+     
+{% block link  %}
+<link rel="stylesheet" href="{% static '/css/about.css' %}">
+{% endblock   %}
+{% block content %}
+
+
+    <section class="inf r">
+<main class="inf fv "></main>
+
+<main class="a slideView">
+<h3>INTERNATIONAL/LOCAL TRANSFER</h3>
+<big>
+Gorbal Transfer 
+</big>
+</main>
+    </section>
+
+    <section class="abouthome" >
+<div class="">
+    <b>Wire Transfers</b>
+<p class="mg">There are times in life when you need to get your money somewhere quickly. When that happens, isn’t it good to know {{i.name}} is there. Move your money fast from one account to another with our wire transfer service. Our secure electronic transfer system makes it easy.
+
+</p>
+</div>
+<img src="{% static '/assets/assets/main/imges/h3.jpeg' %}" alt="">
+    </section>
+<center class="mg">
+    <h1 class="mg">International transfer</h1>
+   <p>International wire transfers are initiated in one country and settle in another. Senders must initiate international transfers even when they send money to someone in another country who has an account at the same bank. These payments require a routing or SWIFT code.</p>
+</center>
+{% endblock content %}

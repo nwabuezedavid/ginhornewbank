@@ -1,0 +1,66 @@
+
+
+    {% extends './base.html' %}
+    {% load static %}
+         
+    {% block link  %}
+    <link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+    <link rel="stylesheet" href="{% static '/dashboardCSS/pending.css'%}">
+    {% endblock   %}
+    {% block content %}
+    
+    
+    
+    <main class="main__body">   
+    
+    {% include './head.html' %}
+    
+            <div class="main__holders">
+
+        <div class="main__holders">
+
+
+            {% include './whead.html' %}
+
+            <big style="padding: 12px; font-size: x-large; color: rgba(240, 248, 255, 0.732);" class="upper">withdraw History </big>
+
+</div>
+<div class="main__bbd">
+    <input type="search" name="" id="" placeholder="Search here......">
+
+    <div class="pending">
+        <span>
+            <b>refrence</b>
+            <b>Date</b>
+            <b>amount</b>
+            <b>status</b>
+        </span>
+        {% if d %}
+        {% for d in d  %}
+        <a href="{% url 'widthdrawalcheck' d.uuid %}" style="width: 100%; margin: 0; padding: 0;">
+        <span class="___main__display" style="width: 100%; margin: 0;">
+            
+            <small>GXB/{{d.uuid}}</small>
+            <small>{{d.date}}</small>
+            <small>{{d.amount}} USD</small>
+            {% if d.approved %}
+            <small>Verified</small>
+            {% else %}
+            <small class="ic" style="color:rgb(255, 0, 0) ;">pending..</small>
+        </a>
+        {% endif %}
+           
+
+        </span>
+        {% endfor  %}
+        {% endif  %}
+    </div>
+    <span class="df">
+        <a class="pd mg cap col__red"> perv</a>
+        <a class="pd mg cap col__red">next</a>
+    </span>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% if messages %}
+    
+{% for emailMessage in messages  %}
+<div class="alertgx" style=" display: flex; background-color: #f44336; color: white;z-index: 9999; position: fixed; top: 0; left: 0;">
+  <span class="closebtn"  onclick="this.parentElement.style.display='none';">&times;</span>
+ <b> {{emailMessage}}</b>
+ <script>
+   setInterval(() => {
+    document.querySelector('.alertgx').style.display="none"
+    
+  }, 4000);
+ </script>
+</div>{% endfor %}
+{% endif %}
+<style>
+.alertgx {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  height: 30px;
+  width: fit-content;
+  padding: 12px;
+  margin: 12px;
+
+  display: flex;flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+  margin-bottom: 15px;
+}
+@media screen and (max-width:700px) {
+  .alertgx {
+  width: 25vw;
+  font-size: x-small;
+
+  }
+}
+.alert b{
+  width: fit-content;
+  display: flex;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+</style>

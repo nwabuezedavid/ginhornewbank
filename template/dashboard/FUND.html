@@ -1,0 +1,86 @@
+
+{% extends './base.html' %}
+{% load static %}
+
+   {% block link  %}
+<script src="https://js.paystack.co/v1/inline.js"></script>
+   <link rel="stylesheet" href="{% static '/dashboardCSS/innerbanktransfer.css'%}">
+   {% endblock   %}
+{% block content %}
+
+    
+ 
+
+    <main class="main__body">
+
+        {% include './head.html' %}
+        <div class="payment">
+            <span>
+    
+            </span>
+            <main class="main__s">
+                <h1>GX bank online banking Fund Account.</h1>
+                <form action=""  class="paymentForm" >
+                    {% csrf_token %}
+                    <span>
+                        <label for="">select Account</label>
+                    <select name="" id="">
+                        <option value="" class="upper">
+                                Savings Account ({{user.Currency}})
+                            <p>Avaliable Balance {{user.Currency}} {{user.balance}}.00</p>
+                        
+                        </option>
+                    </select>
+                    </span>
+                    <input type="text" hidden value="{{csrf_token}}" class="tokenx" >
+                    <span>
+                        <label for="">Amount</label>
+              
+                    <input type="text" required min="1000" class="amount"  name="amount" id="amount" placeholder="{{user.Currency}}">
+                    <small>
+                        <p>Minimum :</p>
+                        <b>{{user.Currency}}1000 </b>
+                        
+                    </small>
+                </span>
+                <button type="submit" class="defer wd bgxds "   >
+                        PAY  
+                    </button>
+                    <script>
+                        
+                        const paymentForm = document.querySelector('.paymentForm');
+                    paymentForm.addEventListener('submit', (e)=> {
+                        
+                        e.preventDefault()
+                        let handler = PaystackPop.setup({
+                            key: '{{key}} ', // Replace with your public key
+                        email: "{{request.user.email}}",
+                        amount: document.getElementById("amount").value * 100,
+                        ref: 'ID'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                        // label: "Optional string that replaces customer email"
+                        onClose: function(){
+                       
+                            
+                            
+                        },
+                        callback: function(response){
+                    let amountb = document.getElementById("amount").value
+                        localStorage.setItem('amount', amountb)
+                        localStorage.setItem('isverified', 'ref')
+                        location.href="{% url 'fundingf' user.uuid %}"
+                            
+                        }
+                      });
+                    
+                     
+                      handler.openIframe();
+                    },false)
+                    </script>
+                    
+                </form>
+            </main>
+        </div>
+    </main>
+   
+    {% endblock content %}
+

@@ -1,0 +1,146 @@
+
+
+   {% load static %}
+        
+   {% block link  %}
+  
+   {% endblock   %}
+{% block content %}
+
+
+<style>
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  color: white;
+}
+
+:root {
+  --bg: rgb(1, 1, 36);
+  --bgw:white;
+  --bgt:rgb(133, 127, 127);
+  --bgt2:rgba(3, 19, 90, 0.493);
+  --brt:#dd2c2c;
+  --bgct:#4ae6c4;
+  --bx: linear-gradient(to right, #3d3dcf, #000035);
+}
+body{
+    background-color: #000035;
+}
+.paymentconclude {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.paymentconclude .healder {
+  background-color: rgba(61, 61, 207, 0);
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+.paymentconclude .healder p {
+  color: var(--bgt);
+  padding: 12px;
+}
+.paymentconclude .healder img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.paymentconclude .body {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+}
+.paymentconclude .body > * {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid gray;
+}
+.paymentconclude .asdcs {
+  background: var(--bx);
+  color: #ffffff;
+}/*# sourceMappingURL=successful.css.map */
+</style>
+<main class="main__body">   
+
+    
+
+        <div class="paymentconclude">
+           <small class="healder">
+            <img src="{% static 'assets/assets/done.gif' %}"  alt="">
+            <b>Transaction On process</b>
+            <p>you have successfully Funded {{d.amount}}{{user.Currency}} to Your  {{i.name}}</p>
+            <strong>Detail of your are shown below</strong>
+           </small>
+           <div class=" body   upper ">
+            <span>
+                <small><i class="bi bi-exclamation-circle">
+            </i>Amount  Credited </small>
+   
+            <p>USD {{d.amount}}</p>
+            </span>
+            <span>
+                <small><i class="bi bi-exclamation-circle">
+    
+                </i>Transaction refrence</small>
+                <p>REF/{{d.uuid}}</p>
+            </span>
+            
+           
+
+            <span>
+                <small><i class="bi bi-exclamation-circle">
+    
+                </i>Date/time  </small>
+                <p>{{d.date}}</p>
+            </span>
+        
+        </div>
+
+
+<p class="df wd cap allcenter allcenterT hd asdcs pad">all electronic fund transfers to or from your account at GX bank are governed by the Electronic fund transfer Disclosure provided to you when you established
+    your account or when you requested other electronic fund transfer services.
+</p>
+
+           
+        </div>
+    </main>
+   <script>
+    localStorage.removeItem('amount')
+   </script>
+</section>    
+<script>
+    let cancel = document.querySelector('.cancel')
+    let btnopo = document.querySelector('.btnopo')
+    let alertx = document.querySelector('.alert')
+    let alert2 = document.querySelector('.cvv')
+    let btnzx = document.querySelector('.btnzx')
+    let finicalalert = document.querySelector('.finicalalert')
+    btnzx.addEventListener('click',()=>{
+        alert2.style.display="none"
+    })
+    finicalalert.addEventListener('click',()=>{
+        alert2.style.display="flex"
+        alertx.style.display="none"
+
+    })
+    cancel.addEventListener('click',()=>{
+        alertx.style.display="none"
+    })
+    btnopo.addEventListener('click',()=>{
+        alertx.style.display="flex"
+    })
+    </script>
+{% endblock content %}

@@ -1,0 +1,471 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  color: black;
+}
+
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  font-weight: lighter;
+}
+
+.alert {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 320px;
+  padding: 12px;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  position: fixed;
+  margin: 12px;
+  box-shadow: 2px 2px 1.2px rgba(0, 0, 255, 0.2588235294);
+  height: -moz-fit-content;
+  height: fit-content;
+  animation-name: alert;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  background-color: rgba(234, 243, 243, 0.4235294118);
+  font-size: smaller;
+  animation-delay: 2s;
+  /* position: fixed; */
+  text-transform: capitalize;
+  transition: all 2s ease-in cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 900px) {
+  .alert {
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    position: unset;
+    max-width: 60vw;
+    position: absolute;
+    z-index: 999;
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+    background-color: rgb(233, 246, 250);
+  }
+}
+@keyframes alert {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.alert img {
+  width: 130px;
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 2px 1px 3px rgb(4, 0, 255);
+}
+@media screen and (max-width: 900px) {
+  .alert img {
+    width: 40px !important;
+    position: unset;
+    height: 40px;
+  }
+}
+.alert span {
+  display: flex;
+  flex-direction: column;
+}
+.alert span article {
+  font-size: larger;
+  font-weight: bolder;
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
+  color: blue;
+}
+.alert span small {
+  color: cornflowerblue;
+  margin-top: 21px;
+}
+
+.wrong {
+  color: tomato;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  background-color: rgba(2, 5, 59, 0);
+  transition: all 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav span {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.nav span ul {
+  display: flex;
+}
+@media screen and (max-width: 980px) {
+  .nav span ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    background-color: #010218;
+  }
+}
+.nav span ul > * {
+  display: flex;
+  margin: 12px;
+  cursor: pointer;
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+}
+.nav span ul .carryo {
+  display: flex;
+  flex-direction: column !important;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
+  position: relative;
+}
+.nav span ul .carryo:hover span {
+  display: flex;
+}
+.nav span ul .carryo small, .nav span ul .carryo i {
+  color: white;
+}
+.nav span ul .carryo span {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  display: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0px;
+  margin-top: 22px;
+  background-color: aliceblue;
+}
+.nav span ul .carryo span > * {
+  margin-top: 12px;
+  border-bottom: 2px solid #02053b;
+  padding: 12px;
+}
+.nav span ul .carryo span > *:hover {
+  color: gray;
+}
+.nav span .acess {
+  display: flex;
+  margin: 12px;
+  background-image: linear-gradient(to right, rgb(61, 61, 207), rgb(0, 0, 53));
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+}
+.nav span .acess:hover {
+  background: aliceblue;
+  color: black;
+}
+
+.bx {
+  background-image: linear-gradient(to right, rgb(61, 61, 207), rgb(0, 0, 53));
+}
+
+.bx2s, .partners {
+  background: rgb(1, 1, 29);
+  color: white;
+}
+
+.mg {
+  margin: 12px;
+}
+
+.mg2 {
+  margin: 22px;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  background-image: url("../assets/assets/main/imges/c - Copy.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 4pc;
+}
+footer p, footer h3, footer a, footer b {
+  color: white;
+}
+footer main {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 22, 0.733);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 980px) {
+  footer main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  footer main > * {
+    width: 100% !important;
+    flex-grow: 1;
+  }
+  footer main .samedf {
+    padding: 22px;
+  }
+}
+footer main > * {
+  width: 300px;
+  flex-grow: 1;
+}
+footer main .fSE {
+  display: flex;
+  font-display: auto;
+  flex-direction: column;
+  padding: 22px;
+}
+footer main .fSE span {
+  display: flex;
+  margin-top: 12px;
+}
+footer main .fSE span input {
+  padding: 12px;
+  outline: none;
+  border: none;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+footer main .fSE span button {
+  display: flex;
+  border: none;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  margin-left: 5px;
+  outline: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: var(--bx);
+}
+footer main .samedf {
+  display: flex;
+  flex-direction: column;
+}
+footer main .samedf b {
+  font-size: 160%;
+  text-transform: uppercase;
+  cursor: var(--bx);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+footer main .samedf a {
+  margin-top: 12px;
+  text-transform: capitalize;
+}
+footer main .samedf a:hover {
+  color: gainsboro;
+}
+
+.bi-twitter {
+  color: cornflowerblue;
+}
+
+.bi-facebook {
+  color: rgb(0, 83, 238);
+}
+
+.bi-telegram {
+  color: rgb(100, 237, 203);
+}
+
+.fz {
+  font-size: 23px;
+}
+
+.inf {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../assets/assets/main/imges/pexels-photo-225502.jpeg");
+}
+@media screen and (max-width: 800px) {
+  .inf {
+    width: 100vw;
+  }
+}
+.inf video {
+  background-color: rgb(1, 3, 36);
+  display: flex;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.inf .slideView {
+  display: flex;
+  width: 100%;
+  background-color: rgba(0, 9, 17, 0.473);
+  height: 100%;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: flex-end;
+  padding: 12px;
+  padding-bottom: 9%;
+}
+@media screen and (max-width: 800px) {
+  .inf .slideView {
+    width: 100vw;
+  }
+  .inf .slideView small {
+    font-size: 12px !important;
+  }
+  .inf .slideView h3 {
+    font-size: 15px;
+  }
+  .inf .slideView i {
+    font-size: x-small;
+  }
+}
+.inf .slideView big {
+  font-size: small;
+  background-image: linear-gradient(to right, rgb(61, 61, 207), rgb(0, 0, 53));
+  padding: 12px;
+}
+.inf .slideView big > * {
+  color: rgb(255, 255, 255);
+}
+.inf .slideView > * {
+  margin-top: 1%;
+  color: white;
+}
+.inf .slideView h1 {
+  font-size: 5.1ex;
+}
+@media screen and (max-width: 800px) {
+  .inf .slideView h1 {
+    font-size: 1rem;
+  }
+}
+.inf .slideView h1 b {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: rgb(2, 12, 68);
+  margin: 12px;
+}
+@media screen and (max-width: 800px) {
+  .inf .slideView h1 b {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 800) {
+  .ds {
+    margin: 12px;
+  }
+}
+
+.bgd {
+  background: #010016;
+}
+.bgd span {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.bgd span ul {
+  display: flex;
+}
+@media screen and (max-width: 800) {
+  .bgd span ul {
+    display: none;
+  }
+}
+.bgd span ul > * {
+  display: flex;
+  margin: 12px;
+  cursor: pointer;
+  color: rgb(172, 158, 158);
+  font-size: 17px;
+}
+.bgd span ul .carryo {
+  display: flex;
+  flex-direction: column !important;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
+  position: relative;
+}
+.bgd span ul .carryo:hover span {
+  display: flex;
+}
+.bgd span ul .carryo small, .bgd span ul .carryo i {
+  color: white;
+}
+.bgd span ul .carryo span {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  display: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0px;
+  margin-top: 22px;
+  background-color: aliceblue;
+}
+.bgd span ul .carryo span > * {
+  margin-top: 12px;
+  border-bottom: 2px solid #02053b;
+  padding: 12px;
+}
+.bgd span ul .carryo span > *:hover {
+  color: gray;
+}
+.bgd span .acess {
+  display: flex;
+  margin: 12px;
+  background-image: linear-gradient(to right, rgb(61, 61, 207), rgb(0, 0, 53));
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+}
+.bgd span .acess:hover {
+  background: aliceblue;
+  color: black;
+}
+
+.df {
+  display: flex !important;
+}
+
+.mg {
+  margin: 43px;
+}
+
+.mgt {
+  margin-top: 43px;
+}/*# sourceMappingURL=uni.css.map */

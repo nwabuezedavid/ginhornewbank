@@ -1,0 +1,137 @@
+<!-- index.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,
+					initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>OTP Input</title>
+    <link rel="stylesheet" href="{% static '/assets/bootstrap-icons-1.10.5/font/bootstrap-icons.css'%}">
+
+</head>
+
+<body>
+	<div class="container" style="background: rgb(255, 255, 255);" >
+        <center>
+            <h1>Create Pin <i class="bi bi-secure"></i></h1>
+            <p>PIN code is required before a transaction can be completed sucessfully . </p>
+        </center>
+		<div id="inputs" class="inputs">
+            <form action="" method="post">
+                {% csrf_token %}
+			<input class="input" type="text"
+				inputmode="numeric" maxlength="1" />
+			<input class="input" type="text"
+				inputmode="numeric" maxlength="1" />
+			<input class="input" type="text"
+				inputmode="numeric" maxlength="1" />
+			<input class="input" type="text"
+				inputmode="numeric" maxlength="1" />
+                <button class="btn" type="submit" hidden style="display: none;"></button>
+                <input class="hidden" style="display: none;" name="pin" type="hidden"
+                    />
+             </form>
+		</div>
+
+	</div>
+    <style>
+        /* style.css */
+.container {
+	display: flex;
+	justify-content: center;
+    flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+} *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.inputs{
+    margin-top: 45px;
+
+}
+.input {
+	width: 130px;
+	border: none;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+	margin: 0 10px;
+	text-align: center;
+	font-size: 36px;
+
+}
+@media screen and (max-width:800px) {
+	.input {
+	width: 60px;
+	border: none;
+
+	flex-grow: 1;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+	margin: 0 10px;
+	text-align: center;
+	font-size: 36px;
+
+}
+}
+.input:focus {
+	border-bottom: 3px solid rgb(255, 17, 0);
+	outline: none;
+}
+
+.input:nth-child(1) {
+	cursor: pointer;
+	pointer-events: all;
+}
+
+    </style>
+	<script >
+        // script.js
+const inputs = document.getElementById("inputs");
+const btn = document.querySelector(".btn");
+const hidden = document.querySelector(".hidden");
+
+let c = ""
+inputs.addEventListener("input", function (e) {
+	const target = e.target;
+	const val = target.value;
+	if (isNaN(val)) {
+		target.value = "";
+		return;
+	}
+
+	if (val != "") {
+		const next = target.nextElementSibling;
+		if (next) {
+			next.focus();
+            c += val
+            console.log(c);
+		}
+         if ( c.length==4){
+            hidden.value = c
+           btn.click()
+        }
+
+	}
+});
+
+inputs.addEventListener("keyup", function (e) {
+	const target = e.target;
+	const key = e.key.toLowerCase();
+
+	if (key == "backspace" || key == "delete") {
+		target.value = "";
+		const prev = target.previousElementSibling;
+		if (prev) {
+			prev.focus();
+		}
+		return;
+	}
+});
+
+    </script>
+</body>
+
+</html>

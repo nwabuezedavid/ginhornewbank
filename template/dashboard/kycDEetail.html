@@ -1,0 +1,240 @@
+{% extends './base.html' %}
+   {% load static %}
+
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/kyc.css'%}">
+   <link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+   {% endblock   %}
+{% block content %}
+
+
+
+
+    <main class="main__body">
+
+        {% include './head.html' %}
+        {% if  vc == "True"  %}
+
+        <center class="cap allcenter " style="align-items: center;
+         justify-content: center; height: 60%; width: 100%;" >
+           <big style="width: 400px; background-color: black; padding: 22px; ">
+            <b class="" spellcheck="true" style="font-size: x-large;">SUCESSFULLY  APPROVED YOUR KYC</b>
+                <p style="color: blue;">YOU CAN NOW HAVE FULL CONTROL OF YOUR ACCOUNT </p>
+           </big>
+        </center>
+
+        {% elif vc == 'Truec' %}
+        <center class="cap allcenter " style="align-items: center;
+         justify-content: center; height: 60%; width: 100%;" >
+           <big style="width: 400px; background-color: black; padding: 22px; ">
+            <b class="" spellcheck="true" style="font-size: x-large;">KYC UNDER REVIEW</b>
+                <p style="color: blue;">WE GET BACK TO YOU WITHIN 24HOURS </p>
+           </big>
+        </center>
+        {% else %}
+        <div class="main__body__s">
+            <div class="holder">
+                <div class="sec__sub">
+
+                <span class="header">
+
+                    <b>01</b>
+                    <ul>
+                        <li>personal </li>
+                        <li>your  simple personal information required for identification</li>
+                    </ul>
+                </span>
+
+                <p class="P__header">
+                    <i></i>
+                    please type carefully and fill out to form with your personal detail  ,your can't edit the detail for submitting the form
+                </p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <span>
+                        <label for="">firstName</label>
+                        <input type="text" name="firstname" value="{{request.user.first_name}}">
+                    </span>
+                    <span>
+                        <label for="">LastName</label>
+                        <input type="text" name="lastname" value="{{request.user.last_name}}">
+                    </span>
+                    <span>
+                        <label for="">Email</label>
+                        <input type="email" value="{{request.user.email}}">
+                    </span>
+                    <span>
+                        <label for="">Phone Number</label>
+                        <input type="number" name="Phone" value="{{user.Phone}}">
+                    </span>
+                    <span>
+                        <label for="">Date Of Birth({{user.Bdate}}) (update) </label>
+                        <input type="date" required name="Bdate">
+                    </span>
+                    <div>
+                        <span class="header headc ">
+
+                            <b>03</b>
+                            <ul>
+                                <li>Document Upload </li>
+                                <li>to verify your identity , please upload any of your Document</li>
+                            </ul>
+                        </span>
+
+                        <p class="P__header">
+                            <i></i>
+                            In order to complete , please upload any of the following personal document
+                        </p>
+                        <div class="UPLAOD__title">
+
+                            <label for="df">
+                                <i class="bi bi-bank"></i>
+                                <p>International Passport</p>
+
+                                <input type="radio" id="df" required name="ini" value="International Passport">
+                            </label>
+                            <label for="fd">
+                                <i class="bi bi-bank"></i>
+                                <p>Driver lisence</p>
+                                <input type="radio" id="fd" required name="ini" value="Driver lisence">
+                            </label>
+                            <label for="fds">
+                                <i class="bi bi-bank"></i>
+                                <p>Others</p>
+                                <input type="radio" id="fds" required name="ini" value="OTHER">
+                            </label>
+                        </div>
+                        <div>
+                          <b class="ideal">  to avold delay when verifying your account, make sure the below :</b>
+                          <p class="ideal__child"><i></i> chosen credential must not expire   </p>
+                          <p class="ideal__child"><i class="ij"></i> document should be in good codition and clearly visible  </p>
+                          <p class="ideal__child"><i></i> make sure that there is not light glare on the card </p>
+                          <h1>UPLOAD HERE</h1>
+                    <span class="image__inpu df " >
+
+                        <label for="front" style="display: flex; flex-direction: column;">
+                            <small>front of the check</small>
+                            <input id="front" type="file" class="frontfile">
+                            <input hidden type="text" style="display: none;" name="front" class="fronytext" name="back">
+                            {% if k.front %}
+                            <img src="{{k.front}}" alt="" class="frontimg" style="width: 170px; height: 100px;">
+                            {% else %}
+                            <img src="" alt="" class="frontimg" style="width: 170px; height: 100px;">
+                            {% endif %}
+                            <script>
+                                let fronfilr = document.querySelector('.frontfile')
+                                let fronimg = document.querySelector('.frontimg')
+                                let fronytext = document.querySelector('.fronytext')
+                                fronfilr.addEventListener('change',()=>{
+                                   const f = new FileReader()
+
+                f.readAsDataURL(fronfilr.files[0]);
+                f.addEventListener('load',()=>{
+                    const url = f.result
+                    fronimg.src=url
+                    fronytext.value = url
+                    console.log(url);
+                })
+
+
+                                })
+
+                            </script>
+                            </label>
+                        <label for="back" class="df " style="flex-direction: column;">
+                            <small>Back of the check</small>
+                            <input id="back" type="file" class="backfile">
+                            {% if k.back %}
+                            <img src="{{k.back}}" alt="" class="backimg"  style="width: 170px; height: 100px;">
+                            {% else %}
+                            <img src="" alt="" class="backimg"  style="width: 170px; height: 100px;">
+                            {% endif %}
+                            <input hidden type="text" style="display: none;"  name="back" class="backtext" name="back">
+
+                            <script>
+                                let backfilr = document.querySelector('.backfile')
+                                let backimg = document.querySelector('.backimg')
+                                let backtext = document.querySelector('.backtext')
+                                backfilr.addEventListener('change',()=>{
+                                   const f = new FileReader()
+
+                f.readAsDataURL(backfilr.files[0]);
+                f.addEventListener('load',()=>{
+                    const url = f.result
+                    backimg.src=url
+                    backtext.value = url
+                    console.log(url);
+                })
+
+
+                                })
+
+                            </script>
+                            </label>
+
+                    </span>
+                      </div>
+
+                    </div>
+                    <div>
+                        <span class="header headc">
+
+                            <b>02</b>
+                            <ul>
+                                <li>Your Address </li>
+                                <li>your  simple address information required for identification</li>
+                            </ul>
+                        </span>
+
+                        <p class="P__header">
+                            <i></i>
+                            your can't edit these detail once you submitted the form
+                        </p>
+                        <span>
+                            <label for="">Address Line 1 </label>
+                            <input type="text" value="{{k.AddressLine1}}" name="add1">
+                        </span>
+                        <span>
+                            <label for="">Address Line 2 </label>
+                            <input type="text" name="add2" value="{{k.AddressLine2}}">
+                        </span>
+                        <span>
+                            <label for="">city </label>
+                            <input type="text" value="{{k.City}}"  name="city">
+                        </span>
+                        <span>
+                            <label for="">Nationality </label>
+                            <input type="text" value="{{k.Nationality}}" name="Nationality">
+                        </span>
+                        <span>
+                            <style>
+                                input{
+                                    text-transform: capitalize;
+                                }
+                            </style>
+                            <label for="">zip code  </label>
+                            <input type="number" value="{{k.ZipCode}}" name="zipcode">
+                        </span>
+
+                    </div>
+
+                    <div class="df  policy" >
+                        <label for="" class="cap">
+                            <input type="checkbox" name="" id="" required>
+                            <p> i have read the <sub>terms and condition</sub>  And  <sup >privacy policy</sup> </p>
+
+                        </label>
+                        <label for="" class="cap">
+                            <input type="checkbox" name="" id="" required>
+                            <p> all personal information i have enter is correct </p>
+                        </label>
+                    </div>
+                    <button class="sub__detail cus">SUBMIT</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        {% endif%}
+
+    </main>
+    {% endblock content %}

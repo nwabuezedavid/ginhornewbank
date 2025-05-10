@@ -1,0 +1,41 @@
+
+{% load static %}
+<div class="head df wd pad btw" >
+    <span class="df">
+        <i class="bi bi-justify  btn__open"  ></i>
+    <p class="btn___p">
+    <marquee behavior="" direction="left">
+    
+      Welcome  back admin  
+    </marquee>
+    </p>
+    </span>
+    
+    <div class="r df allcenter charsetholder">
+        <i class="bi bi-envelope box__in pad rod "> <b class="col__red">0</b></i>
+        <img src="{{i.logo}}" alt="">
+        <small>
+            <p>connected</p>
+            <b>{{request.user.username}}</b>
+        </small>
+    <div class="a shotcut">
+        <big class="df dv">
+            <img src="{% static '/assets/assets/main/imges/1v.jpeg' %}" alt="">
+    <span>
+        <b>{{request.user.username}}</b>
+        <i>Admin</i>
+    </span>
+    </big>
+    
+  
+    <span class="dv3">
+       
+       
+        <a href="/logout">
+            <p>logout</p>
+            <i class="bi bi-toggle-off"></i>
+        </a>
+    </span>
+    </div>
+    </div>
+            </div>

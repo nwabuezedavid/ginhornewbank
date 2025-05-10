@@ -1,0 +1,126 @@
+<main class="nav" style=" margin-bottom:90px">
+    {% load humanize %}
+
+    <span class="log__con r">
+
+        <b>{{i.name}}</b>
+        <i class="bi bi-x a btn__d"  ></i>
+    </span>
+    <div class="balance">
+        <b class="ava">
+            available balance
+        </b>
+        <big class="chart">
+            <strong>
+                <small>
+                    {{user.balance|intcomma}}<sub>{{user.Currency}}</sub>
+
+                </small>
+                <p>{{user.balance|intcomma}} {{user.Currency}}</p>
+            </strong>
+            <i class="bi bi-bar-chart"></i>
+        </big>
+        <big class="debite">
+            <small>
+                <p>income</p>
+                <b class="gain">{{pcash}} <i class="bi bi-arrow-up"></i></b>
+            </small>
+            <small>
+                <p>debite</p>
+                <b class="lost">{{dcash}} <i class="bi bi-arrow-down"></i></b>
+            </small>
+        </big>
+    </div>
+    <div class="df even wd pays">
+        <a href="{% url 'samebank' user.uuid %}" class="df forword">
+            <i class="bi bi-forward"></i>
+            <p>Local Transfer</p>
+        </a>
+        <a href="{% url 'innertransfer' user.uuid %}" class="df pay">
+            <i class="bi bi-person-down"></i>
+            <p>inter-Transfer </p>
+        </a>
+    </div>
+
+    <main class="links" style=" margin-bottom:90px" >
+        <li>MENU </li>
+        <a href="{% url 'dashboard' user.uuid %}" class="linkd begin">
+            <i class="bi bi-grid"></i>
+            <p>dashboard</p>
+        </a>
+
+        <a href="{% url 'Accountsum' user.uuid %}" class="linkd ">
+            <i class="bi bi-folder-symlink"></i>
+            <p> Account summary </p>
+        </a>
+
+        <a href="{% url 'samebank' user.uuid %}" class="linkd ">
+            <i class="bi bi-cash"></i>
+            <p>Local Transfer  </p>
+        </a>
+        <a href="{% url 'innertransfer' user.uuid %}" class="linkd ">
+            <i class="bi bi-cash"></i>
+            <p>International Transfer </p>
+        </a>
+
+
+
+        <a href="{% url 'Kyc' user.uuid %}" class="linkd ">
+            <i class="bi bi-collection"></i>
+            <p> KYC status </p>
+        </a>
+        <a href="{% url 'Btcpay' user.uuid %}" class="linkd ">
+            <i class="bi bi-currency-bitcoin"></i>
+            <p> crypto-currency </p>
+        </a>
+        <a href="{% url 'profile' user.uuid %}" class="linkd ">
+            <i class="bi bi-person-circle"></i>
+            <p> Profile </p>
+        </a>
+
+
+
+
+
+
+        <a href="{% url 'logoutUser'  %}" class="linkd ">
+            <i class="bi bi-toggle-off"></i>
+            <p> logout </p>
+        </a>
+    </main>
+    <style>
+
+
+
+        @media screen and (max-width: 800px) {
+
+            .linkd{
+                display:flex;
+                padding:22px;
+            }
+.main___holder .nav .links .linkd {
+    display: flex;
+    width: 95%;
+    height: 52px !important;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 2px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid gray;
+}
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</main>

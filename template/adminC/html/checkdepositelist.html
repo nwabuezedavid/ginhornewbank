@@ -1,0 +1,65 @@
+
+    {% extends './base.html' %}
+    {% load static %}
+    {% block link  %}
+<link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css' %}">
+
+    {% endblock link  %}
+    
+    
+    {% block adblock %}
+
+        <div class="main__holders">
+
+
+<div class="sec_32_h">
+<li class="jd " style="display: flex; ">
+<a  style="margin: 12px ;border-bottom: 2px solid rgba(255, 0, 0, 0.753);">Edit Transcations/iddjbdj  </a>    
+
+</li>
+
+</div>
+<form action="">
+    <span>
+        <label for="">REF Number</label>
+        <input type="text" placeholder="Ref Numberx ">
+    </span>
+    <span>
+        <label for="">Amount </label>
+        <input type="number" placeholder="Amount  ">
+    </span>
+    <span>
+        <label for="">Date</label>
+        <input type="date" placeholder="Date ">
+    </span>
+    <span>
+        <label for="">Description</label>
+        <input type="text" placeholder="Description ">
+    </span>
+    
+    <span>
+        <label for="">type </label>
+        <select name="" id="">
+            <option value=""> debit</option>
+            <option value=""> credit</option>
+        </select>
+    </span>
+    <span>
+        <label for="">Statue </label>
+        <select name="" id="">
+            <option value=""> pending </option>
+            <option value=""> Active </option>
+        </select>
+    </span>
+   
+   
+    
+    
+   
+    <button type="submit" >update    </button>
+</form>
+
+
+
+        </div>
+        {% endblock adblock %}

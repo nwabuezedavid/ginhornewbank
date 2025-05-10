@@ -1,0 +1,135 @@
+
+    {% extends './base.html' %}
+    {% load static %}
+         
+    {% block link  %}
+    <link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+    {% endblock   %}
+ {% block content %}
+ 
+ 
+ 
+ <main class="main__body">   
+ 
+    {% include './head.html' %}
+       
+
+        <div class="main__holders">
+<div class="header__top">
+<span>
+    <h1>internet Banking check deposite</h1>
+    <p>you can deposite check by snapping picture of the front and back of the check</p>
+</span>
+<a href="{% url 'innertransfer' user.uuid %}">Transfer Fund <i class="bi bi-wallet2"></i></a>
+</div>
+
+<div class="sec_32_h">
+<li class="jd">Deposit a check </li>
+<ul>
+    <h3>Check deposit tips </h3>
+    <li>
+        <i class="bi bi-exclamation-circle"></i>
+        <p>choose the account to deposit the check and the check amount </p>
+    </li>
+    <li>
+        <i class="bi bi-exclamation-circle"></i>
+        <p>choose the account to deposit the check and the check amount </p>
+    </li>
+    <li>
+        <i class="bi bi-exclamation-circle"></i>
+        <p>choose the account to deposit the check and the check amount </p>
+    </li>
+</ul>
+</div>
+<form action="" method="post">
+{% csrf_token %}
+    <span>
+        <label for="">select Account </label>
+        <select name="" id="">
+            <option value=""> available <i class="bi bi-currency-exchange"></i> Balance is {{user.Currency}}{{user.balance}}</option>
+        </select>
+    </span>
+    <span>
+        <label for="">Amount check</label>
+        <input type="number"  name="amount"placeholder="Enter Amount ">
+    </span>
+    <span>
+        <label for="">Date/time check</label>
+        <input type="datetime-local" name="date" placeholder="Enter Amount ">
+    </span>
+    <span class="imges">
+        <label for="front" style="display: flex; flex-direction: column;">
+            <small>front of the check</small>
+            <input id="front" required type="file" class="frontfile">
+            <input hidden type="text" style="display: none;" name="front" class="fronytext" name="back">
+            {% if k.front %}
+            <img src="{{k.front}}" alt="" class="frontimg" style="height: 100%;" >
+            {% else %}
+            <img src="" alt="" class="frontimg" >
+            {% endif %}
+            <script>
+                let fronfilr = document.querySelector('.frontfile')
+                let fronimg = document.querySelector('.frontimg')
+                let fronytext = document.querySelector('.fronytext')
+                fronfilr.addEventListener('change',()=>{
+                   const f = new FileReader()
+
+f.readAsDataURL(fronfilr.files[0]);
+f.addEventListener('load',()=>{
+    const url = f.result
+    fronimg.src=url
+    fronytext.value = url
+    console.log(url);
+})
+
+
+                })
+               
+            </script>
+            </label>
+            <style>
+                .main__holders form .imges label img {
+    background-color: white;
+    width: 100%;
+    height: 65% !important;
+}
+            </style>
+        <label for="back" class="df " style="flex-direction: column;">
+            <small>Back of the check</small>
+            <input id="back" required type="file" class="backfile">
+            {% if k.back %}
+            <img src="{{k.back}}" alt="" class="backimg"  style="height: 100% !important; max-height: 120px !important;">
+            {% else %}
+            <img src="" alt="" class="backimg"  >
+            {% endif %}
+            <input hidden type="text" style="display: none;"  name="back" class="backtext" name="back">
+        
+            <script>
+                let backfilr = document.querySelector('.backfile')
+                let backimg = document.querySelector('.backimg')
+                let backtext = document.querySelector('.backtext')
+                backfilr.addEventListener('change',()=>{
+                   const f = new FileReader()
+
+f.readAsDataURL(backfilr.files[0]);
+f.addEventListener('load',()=>{
+    const url = f.result
+    backimg.src=url
+    backtext.value = url
+    console.log(url);
+})
+
+
+                })
+               
+            </script>
+            </label>
+    </span>
+    <button type="submit" >Send </button>
+</form>
+
+
+
+        </div>
+    </main>
+    {% endblock content %}

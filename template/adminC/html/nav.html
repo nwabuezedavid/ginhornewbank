@@ -1,0 +1,73 @@
+<main class="nav">
+    <span class="log__con r">
+        <b>Admin</b>
+        <i class="bi bi-x a btn__d"  ></i>
+    </span>
+    <div class="balance">
+        <b class="ava">
+           Quick Action
+        </b>
+
+       <a href="" class="df wd   dfdf">
+        <i class="bi bi-person-plus"></i>
+        <p>Create a User Account  </p>
+        <small class="">Now</small>
+       </a>
+    </div>
+
+
+    <main class="links">
+        <b class="mg">Dashboard </b>
+        <a href="{% url 'admin' user.uuid %}" class="linkd begin">
+            <i class="bi bi-grid"></i>
+            <p>All user</p>
+        </a>
+        <a href="{% url 'alltran' user.uuid %}" class="linkd begin">
+            <i class="bi bi-grid"></i>
+            <p>Transcations</p>
+        </a>
+        
+        <a href="{% url 'funuser' user.uuid %}" class="linkd ">
+            <i class="bi bi-folder-symlink"></i>
+            <p>Credit/Debit a User Account  </p>
+        </a>
+
+       
+        
+
+        <a href="{% url 'senduserkcyview' user.uuid %}" class="linkd ">
+            <i class="bi bi-person-plus"></i>
+            <p> kYC Application </p>
+        </a>
+
+        <a href="{% url 'EditeSite' user.uuid %}" class="linkd ">
+            <i class="bi bi-people"></i>
+            <p> Edite website Page </p>
+        </a>
+
+        <a href="{% url 'logoutUser'%}" class="linkd ">
+            <i class="bi bi-toggle-off"></i>
+            <p> logout </p>
+        </a>
+    </main>
+    <style>
+
+        @media screen and (max-width: 800px) {
+
+            .linkd{
+                display:flex;
+                padding:22px;
+            }
+.main___holder .nav .links .linkd {
+    display: flex;
+    width: 95%;
+    height: 52px !important;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 2px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid gray;
+}
+        }
+    </style>
+</main>

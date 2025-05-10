@@ -1,0 +1,62 @@
+
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/pending.css'%}">
+   {% endblock   %}
+{% block content %}
+
+    
+ 
+
+    <main class="main__body">
+
+        {% include './head.html' %}
+        <div class="main__bbd">
+            <form action="" method="post">
+{% csrf_token %}
+                <input type="search" name="p" id="" placeholder="Search here......">
+            </form>
+
+
+            <div class="pending">
+                <span>
+                    <b>ref</b>
+                    <b>type</b>
+                   
+                    <b>amount</b>
+                    <b>date</b>
+                    <b>description</b>
+                    <b>status</b>
+                </span>
+                {% if d %}
+                {% for d in d %}
+                <span class="___main__display">
+                
+                <small><a >{{d.uuid}}</a> </small>
+                
+                    
+                    <small>{{d.btcname.name}} /Credit</small>
+                    
+                    <small class="upper">{{d.btcname.name}} {{d.amount}}</small>
+                    <small>{{d.date}}</small>
+                    <small>Deposit By Btc </small>
+                    {% if d.approved == True %}
+                    <small class="ic" style="color: cadetblue;">completed</small>
+                    {% else %}
+                    <small class="iw" style="color: brown;">processing....</small>
+
+                    {% endif%}
+
+                </span>
+                {% endfor %}
+                {% endif  %}
+                
+            </div>
+           
+        </div>
+    </main>
+</section>    
+
+{% endblock content %}

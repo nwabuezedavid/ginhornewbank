@@ -1,0 +1,98 @@
+
+
+{% extends './base.html' %}
+   {% load static %}
+   {% load humanize %}
+
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/successful.css'%}">
+   {% endblock   %}
+{% block content %}
+
+
+
+<main class="main__body">   
+
+   {% include './head.html' %}
+    
+
+        <div class="paymentconclude">
+           <small class="healder">
+            <img src="{% static 'assets/assets/done.gif' %}"  alt="">
+            {% if d.approved %}
+            <b>Transaction is Sucessfully</b>
+            {% else %}
+            <b>Transaction On process</b>
+            {% endif %}
+            <p>you have successfully {{d.statedecr}}ed {{d.amount|intcomma}}{{user.Currency}} to Your  {{i.name}} </p>
+            <strong>Detail of your Transcation are shown below</strong>
+           </small>
+           <div class=" body   upper ">
+            <span>
+                <small><i class="bi bi-exclamation-circle">
+            </i>Amount  {{d.statedecr}}ed </small>
+   
+            <p>USD {{d.amount|intcomma}} </p>
+            </span>
+            <span>
+                <small><i class="bi bi-exclamation-circle">
+    
+                </i>Transaction refrence</small>
+                <p>REF/{{d.uuid}}</p>
+            </span>
+            
+           
+
+            <span>
+                <small><i class="bi bi-exclamation-circle">
+    
+                </i>Date/time  </small>
+                <p>{{d.date}}</p>
+            </span>
+        
+        </div>
+
+<span class="df even pad cap">
+    {% if disc == 'GIFTED' %}
+    <a href="{% url 'samebank' user.uuid %}" class="mg pad ">new Transcation </a>
+    {% else %}
+    <a href="{% url 'funding' user.uuid %}" class="mg pad ">new Transcation </a>
+  {% endif %}
+    <a href="{% url 'dashboard' user.uuid %}" class="mg pad col__red">Back to home</a>
+    <a href="{% url 'genpdf' d.uuid %}" class="mg pad col__red">Print</a>
+   
+</span>
+<p class="df wd cap allcenter allcenterT hd asdcs pad">all electronic fund transfers to or from your account at GX bank are governed by the Electronic fund transfer Disclosure provided to you when you established
+    your account or when you requested other electronic fund transfer services.
+</p>
+
+           
+        </div>
+    </main>
+   <script>
+    localStorage.removeItem('amount')
+   </script>
+</section>    
+<script>
+    let cancel = document.querySelector('.cancel')
+    let btnopo = document.querySelector('.btnopo')
+    let alertx = document.querySelector('.alert')
+    let alert2 = document.querySelector('.cvv')
+    let btnzx = document.querySelector('.btnzx')
+    let finicalalert = document.querySelector('.finicalalert')
+    btnzx.addEventListener('click',()=>{
+        alert2.style.display="none"
+    })
+    finicalalert.addEventListener('click',()=>{
+        alert2.style.display="flex"
+        alertx.style.display="none"
+
+    })
+    cancel.addEventListener('click',()=>{
+        alertx.style.display="none"
+    })
+    btnopo.addEventListener('click',()=>{
+        alertx.style.display="flex"
+    })
+    </script>
+{% endblock content %}

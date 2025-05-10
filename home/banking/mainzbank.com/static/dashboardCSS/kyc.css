@@ -1,0 +1,207 @@
+:root {
+  --bg: rgb(1, 1, 36);
+  --bgw:white;
+  --bgt:rgb(133, 127, 127);
+  --bgt2:rgba(3, 19, 90, 0.493);
+  --brt:#dd2c2c;
+  --bgct:#4ae6c4;
+  --bgt3:#0c0c0c38;
+  --bx: linear-gradient(to right, #3d3dcf, #000035);
+}
+
+.main__body__s {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: 100%;
+}
+.main__body__s .holder {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  width: 100%;
+}
+.main__body__s .holder .header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-transform: capitalize;
+}
+.main__body__s .holder .header b {
+  font-size: 23px;
+  border: 1px solid white;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 9px;
+  border-radius: 50%;
+  margin: 12px;
+}
+.main__body__s .holder .header ul {
+  display: flex;
+  flex-direction: column;
+}
+.main__body__s .holder .header ul li {
+  display: flex;
+}
+.main__body__s .holder .header ul li:first-child {
+  font-size: large;
+  text-transform: uppercase;
+}
+.main__body__s .holder .P__header {
+  display: flex;
+  width: 100%;
+  margin: 12px;
+  padding: 12px;
+  text-transform: capitalize;
+  color: var(--bgt);
+}
+.main__body__s .holder .P__header i {
+  height: 22px;
+  width: 22px;
+  background: var(--bx);
+  margin: 12px;
+  border-radius: 50%;
+}
+.main__body__s .holder form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main__body__s .holder form .headc {
+  width: 100%;
+  flex-direction: row;
+  margin-top: 22px;
+}
+.main__body__s .holder form span {
+  display: flex;
+  flex-direction: column;
+}
+.main__body__s .holder form span label {
+  font-size: large;
+  margin: 12px;
+  display: flex;
+  text-transform: capitalize;
+}
+.main__body__s .holder form span input {
+  padding: 12px;
+  background-color: var(--bgt3);
+  display: flex;
+  border: none;
+  border-bottom: 1px solid white;
+}
+.main__body__s .holder form span input:focus {
+  border-bottom: 1px solid rgb(214, 25, 25);
+}
+.main__body__s .holder form .UPLAOD__title {
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  justify-content: space-around;
+}
+.main__body__s .holder form .UPLAOD__title > * {
+  display: flex;
+  padding: 12px;
+  width: 220px;
+  text-transform: capitalize;
+  font-size: x-large;
+  background: var(--bx);
+  justify-content: space-between;
+  border-radius: 22px;
+  border-top-left-radius: 0px;
+  cursor: pointer;
+}
+.main__body__s .holder form .UPLAOD__title > * input {
+  font-size: 30px;
+}
+.main__body__s .holder form .ideal {
+  font-size: larger;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 22px;
+  text-transform: capitalize;
+}
+.main__body__s .holder form .ideal__child {
+  text-transform: capitalize;
+  display: flex;
+  margin: 12px;
+}
+.main__body__s .holder form .ideal__child .ij {
+  height: 23px;
+  width: 23px;
+  color: #dd2c2c;
+  border-radius: 50%;
+}
+.main__body__s .holder form .image__inpu {
+  display: flex !important;
+  width: 100%;
+}
+.main__body__s .holder form .policy {
+  display: flex;
+  width: 100%;
+  min-height: 130px;
+  flex-direction: column;
+  padding: 22px;
+}
+.main__body__s .holder form .policy > * {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 22px;
+}
+.main__body__s .holder form .policy > * sup, .main__body__s .holder form .policy > * sub {
+  color: #fd2121;
+  display: flex;
+  margin: 6px;
+}
+.main__body__s .holder form .policy > * > * {
+  flex-direction: row;
+  display: flex;
+  margin-left: 12px;
+}
+.main__body__s .holder form .sub__detail {
+  display: flex;
+  padding: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: flex-end;
+  margin-right: 33px;
+  border: none;
+  border-radius: 6px;
+  background-color: #fffdfd;
+  color: var(--bg);
+}
+.main__body__s .holder form .sub__detail:hover {
+  color: var(--bgw);
+  background-color: #dd2c2c;
+}
+
+.kfkf {
+  display: flex;
+  background-color: #000035;
+  color: white;
+  text-transform: uppercase;
+}
+
+.ffd {
+  display: flex;
+  flex-direction: row !important;
+}
+.ffd label {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.fdffff {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fdffff > * {
+  margin: 12px;
+  border: none;
+  border-bottom: 1px solid white;
+}
+.fdffff > *:hover {
+  border-bottom: 1px solid red;
+}/*# sourceMappingURL=kyc.css.map */

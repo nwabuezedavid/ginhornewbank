@@ -1,0 +1,60 @@
+
+{% extends './base.html' %}
+{% load static %}
+{% block link  %}
+
+{% endblock link  %}
+
+
+{% block adblock %}
+        <div class="main__admin__users main__display">
+            
+            <span class="bi_head">
+                <h1>All Transcations </h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="bi bi-arrow-left "></i>
+                    <p>   Back </p>
+                </a>
+            </span>
+            
+            <div class="  main__form">
+                <a href="{% url 'ptrandeleteall' i.uuid%}" class="pad col__red">Delete All</a>
+                <input type="text" placeholder="Search Here...">
+                <div class="div__hoder">
+                    <b>id</b>
+                    <b>Amount</b>
+                    <b>type</b>
+                    
+                    
+                    <b>Date/time</b>
+                    <b>Statue</b>
+                </div>
+                {% if t %}
+                {% for t in  t %}
+                <span class="main__chide r" >
+                    <b>GXB/{{t.uuid}}</b>
+                    <b>{{t.amount}} USD </b>
+                    <b>{{t.statedecr}}  </b>
+                    <b>{{t.date}}</b>
+                    {% if t.approved %}
+                    <b class="ic">Active</b>
+                    {% else %}
+                    <b class="iw">penfing..</b>
+                    {% endif %}
+                    <small class="over_s">
+                        
+                        <a href="{% url 'ptrandelete' t.uuid  i.uuid %}" title="delete Account"><i class="bi bi-trash"></i></a>
+                        <a href="{% url 'adminauthedit' t.uuid %}"title="Edit"><i class="bi bi-pen"></i></a>
+                        {% if t.approved == True %}
+                        <a href="{% url 'disptranapproved' t.uuid  i.uuid %}" title="disApprove "><i class="bi bi-x"></i></a>
+                         {% else %}
+                         <a href="{% url 'ptranapproved' t.uuid  i.uuid %}" title="Approve "><i class="bi bi-check"></i></a>
+                         {% endif %}
+                    </small>
+                </span >
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+        {% endblock adblock %}

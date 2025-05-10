@@ -1,0 +1,54 @@
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/kyc.css'%}">
+   <link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+   {% endblock   %} 
+{% block adblock %}
+
+     
+ 
+
+    <main class="main__body">
+
+ 
+        <div class="main__body__s">
+            <div class="holder">
+                <div class="sec__sub">
+
+<div style="display: flex; justify-content: space-between; width: 100%;">
+
+    <span style="display: flex ;flex-direction: column;" >
+
+
+       <h3 class="cap">User Name: {{z.user.username}}</h3>
+       <h3 class="cap">Coin Name: {{c.btcname.name}}</h3>
+       <h3 class="cap">Crypto Address: {{c.btcname.address}}</h3>
+    </span>
+    <a href="javascript:history.go(-1)" class="cap sub__detail cus" style=" padding: 12px ; background-color: rgb(206, 5, 5);  margin: 12px;">Back</a>
+
+</div>
+                <center >
+                    
+                    
+                  
+                        <div style="margin-top: 22px;">
+                         <h1 style="margin-bottom: 22px;">  PROOF OF PAYMENT (Pay {{c.amount}} worth of {{c.btcname.name}} )</h1>
+                         <img src="{{c.prof}}" alt="" class="frontimg" style="width: 80%; height: 150px;">
+                         <p>
+                           Date/time: {{c.date}}
+                         </p>
+                    <span class="df pad" style="display: flex ; flex-direction: row; ">
+                        {% if c.approved == True %}
+                        <a href="{% url 'approvedbtc' c.id %}" class=" cap sub__detail cus" style=" padding: 12px ; background-color: rgb(0, 208, 255);  margin: 12px;">approved</a>
+                        {% endif %}
+                   <a href="{% url 'deletebtc' c.id %}" class="cap sub__detail cus" style=" padding: 12px ; background-color: rgb(206, 5, 5);  margin: 12px;">Delete</a>
+                    </span>
+                    
+                </center>
+            </div>
+            </div>
+        </div>
+    </main>
+    {% endblock adblock %}

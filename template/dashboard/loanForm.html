@@ -1,0 +1,81 @@
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/kyc.css'%}">
+   {% endblock   %} 
+{% block content %}
+
+     
+ 
+
+    <main class="main__body">
+
+        {% include './head.html' %}
+        <div class="main__body__s">
+            <div class="holder">
+                <div class="sec__sub">
+
+                <span class="header fdffff">
+<a href="{% url 'loanform' user.uuid %}">New Loan</a>
+<a href="{% url 'loanpend' user.uuid %}">Loan History</a>
+                </span>
+
+               
+                <form action="" method="post">
+                    <span>
+                        <label for="">disburement Account:</label>
+                        <select name="" id="" class="df pad kfkf">
+                            <option value="" class="cap" >Savings Account ({{user.Currency}}) <br> available balance {{user.Currency}} 300</option>
+                        </select>
+                    </span>
+                    <span>
+                        <label for="">LOAN Amount</label>
+                        <input type="text">
+                    </span>
+                    <span class="df ffd">
+                        <label for="">
+                            <p >
+
+                                Credit Facility 
+                            </p>
+                            <select name="" id="" class="df pad kfkf">
+                                <option value="" >selet loan / Credit Facility</option>
+                                <option value="" >Savings Account ({{user.Currency}}) <br> available balance {{user.Currency}} 300</option>
+                            </select>
+                        </label> 
+                        <label for="">
+                            <p>
+
+                                repayment tensure 
+                            </p>
+                            <select name="" id="" class="df pad kfkf">
+                                <option value="" >payment tensure </option>
+                            </select>
+                        </label> 
+                       
+                    </span>
+                    <span>
+                        <label for="">Purpose</label>
+                        <input type="text">
+                    </span>
+                    <b class="mg pad">Terms and conditions </b>
+
+                    <div class="df  policy" >
+                        <label for="" class="cap">
+                            <input type="checkbox" name="" id="" required>
+                            <p> i have read the <sub>terms and condition</sub>  And  <sup >privacy policy</sup> </p>
+
+                        </label>
+                        <label for="" class="cap">
+                            <input type="checkbox" name="" id="" required>
+                            <p> all personal information i have enter is correct </p>
+                        </label>
+                    </div>
+                    <button class="sub__detail cus">SUBMIT</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </main>
+    {% endblock content %}

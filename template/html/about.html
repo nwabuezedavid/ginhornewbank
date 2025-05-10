@@ -1,0 +1,129 @@
+
+
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/css/about.css' %}">
+   {% endblock   %}
+{% block content %}
+
+ 
+ 
+
+
+
+
+
+    <section class="inf r">
+<main class="inf fv "></main>
+
+<main class="a slideView">
+<h1 class="ds">About   <b class="bx pad ">{{i.name}}</span> </b>  </h1>
+<h3>your ally is achieving ambition beyond border.</h3>
+
+<big>
+<a href="">
+    
+    <i class="bi bi-twitter fz"></i>
+</a>
+<a href="">
+    
+    <i class="bi bi-facebook fz"></i>
+</a>
+<a href="">
+    
+    <i class="bi bi-telegram fz"></i>
+</a>
+</big>
+</main>
+    </section>
+
+
+
+
+<style>
+    .head i{
+        margin: 22px;
+        background-color: none !important;
+        color:rgb(18, 0, 34);
+    
+}
+.coomet main big i {
+    font-size: 34px;
+    margin-bottom: 12px;
+    height: 34px;
+    border-radius: 50%;
+    margin: 12px !important;
+    width: 34px;
+    background: none ;
+    color: rgb(24, 0, 109);
+    padding: 7px;
+}
+    @media screen and (max-width:890px) {
+    .abouts{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .abouts img{
+            width: 100% !important;
+        }
+    }
+    .coomet main {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+<section class="abouthome">
+    <div>
+        <b>We Stand For Everyone</b>
+        <p class="mg ">ElipTrust Bank® is a federally chartered savings bank headquartered in United States. As a recognized leader in the industry, ElipTrust Bank has been named among the top community banks and thrifts and the top-performing mid-sized banks in the nation. Though we’re receiving attention across the United States for what we do, our focus is and always has been on our customers. </p>
+   <p>Successfully Providing the Best Banking Solution for over 10 years.</p>
+    </div>
+    <img src="{% static '/assets/assets/main/imges/d.jpg' %}" alt="">
+        </section>
+    <section class="abouts  df col ">
+<div class="head ">
+    <h1>Your Success Means
+        a lot To Us      </h1>
+    <p>
+        we understand that wth glorbal ambition , comes glorbal challenagesand we here to bridge the gap by offering  seamless cross border finiancial services. Consider us your friend digital guide to all thing helping finiance , helping you make <br>most your money   
+    </p>
+    <span class="allcenter" style="max-width: 100%;">
+        <big>
+            <b>98%</b>
+          <article>
+
+              customer satifaction 
+          </article> 
+        </big>
+        <big>
+            <b>39K + </b>
+          <article>
+
+              new users per week  
+          </article> 
+        </big>
+        <big>
+            <b>18M +</b>
+          <article>
+
+              monthly active users 
+          </article> 
+        </big>
+    </span>
+</div>
+<div style="width: fit-content;">
+    <img style="width: 430px;" src="{% static 'assets/h.jpg'%}" alt="">
+</div>
+        
+    </section>
+
+
+
+    
+    {% endblock  %}
+

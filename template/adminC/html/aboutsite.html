@@ -1,0 +1,91 @@
+
+    {% extends './base.html' %}
+    {% load static %}
+    {% block link  %}
+<link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css' %}">
+
+    {% endblock link  %}
+    
+    
+    {% block adblock %}
+
+        <div class="main__holders">
+
+
+<div class="sec_32_h">
+<li class="jd " style="display: flex; ">
+<a  style="margin: 12px ;border-bottom: 2px solid rgba(255, 0, 0, 0.753);">Edit Website  </a>    
+
+</li>
+
+</div>
+<form action="" method="post">
+    {% csrf_token %}
+    <span>
+        <label for=""> website Name</label>
+        <input type="text" value="{{o.name}}" name="name" placeholder="Website Name ">
+    </span>
+    <span>
+
+    
+    <label for="back" class="df " style="flex-direction: column;">
+        <small>Logo</small>
+        <input id="back" required type="file" class="backfile">
+        {% if k.back %}
+        <img src="{{o.logo}}" alt="" class="backimg"  style="height: 100% !important; max-height: 120px !important;">
+        {% else %}
+        <img src="{{o.logo}}" alt="" height="100" width="100" class="backimg"  >
+        {% endif %}
+        <input hidden type="text" style="display: none;"  name="logo" class="backtext" name="back">
+    
+        <script>
+            let backfilr = document.querySelector('.backfile')
+            let backimg = document.querySelector('.backimg')
+            let backtext = document.querySelector('.backtext')
+            backfilr.addEventListener('change',()=>{
+               const f = new FileReader()
+
+f.readAsDataURL(backfilr.files[0]);
+f.addEventListener('load',()=>{
+const url = f.result
+backimg.src=url
+backtext.value = url
+console.log(url);
+})
+
+
+            })
+           
+        </script>
+        </label>
+    </span>
+    <span>
+        <label for="">Location website  </label>
+        <input name="location" value="{{o.location}}"  type="text" placeholder="Location website  ">
+    </span>
+    <span>
+        <label for="">Email</label>
+        <input name="email" value="{{o.email}}"  type="Email" placeholder="email ">
+    </span>
+    <span>
+        <label for="">Description</label>
+        <input name="desc" value="{{o.desc}}" type="text" placeholder="Description ">
+    </span>
+    <span>
+        <label for="">Address</label>
+        <input name="adder" value="{{o.addressLine2}}" type="text" placeholder="Address ">
+    </span>
+    
+   
+   
+   
+    
+    
+   
+    <button type="submit" >update    </button>
+</form>
+
+
+
+        </div>
+        {% endblock adblock %}

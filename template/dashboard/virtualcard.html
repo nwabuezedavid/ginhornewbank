@@ -1,0 +1,30 @@
+
+{% extends './base.html' %}
+   {% load static %}
+        
+   {% block link  %}
+   <link rel="stylesheet" href="{% static '/dashboardCSS/virtual.css'%}">
+   {% endblock   %}
+{% block content %}
+    
+<main class="main__body">
+
+    {% include './head.html' %}
+        <div class="main__bVirtual">
+            <h1>{{subject}}</h1>
+            <p class="colorT">{{p}} </p>
+            <div class="main__con">
+                <i class="bi {{i}} headericon"></i>
+                <p class="mg cap colorT"> {{p2}}</p>
+                <a href="{{redi}}" class="df allcenter cap ">
+                    <i class="bi {{i}}"></i>
+                    <p class="col__red btn">{{btn}}</p>
+                </a>
+            </div>
+        <a href="{{redi}}" class="support">if u have any question , please contact our support tearm <small>
+
+            INFORGXBANKING@gamil.com
+        </small>
+        </a>
+        </div>
+        {% endblock content %}

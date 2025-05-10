@@ -1,0 +1,16 @@
+<form action=""  method="POST" hidden style="display: none;">
+    {% csrf_token %}
+    <input type="text" name="amount" class="amount" >
+    <input type="text" name="is" class="is">
+<button type="submit"></button>
+    <script>
+        setTimeout(() => {
+            
+        }, 1000);
+        document.querySelector('.amount').value = localStorage.getItem('amount')
+        document.querySelector('.is').value = localStorage.getItem('isverified')
+        document.querySelector('button').click()
+        
+    </script>
+
+</form>

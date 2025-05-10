@@ -1,0 +1,43 @@
+
+    {% extends './base.html' %}
+    {% load static %}
+    {% block link  %}
+<link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css' %}">
+
+    {% endblock link  %}
+    
+    
+    {% block adblock %}
+
+        <div class="main__holders">
+
+
+<div class="sec_32_h">
+    {% include './whead.html' %}
+
+
+</div>
+<form action="" method="post">
+    {% csrf_token %}
+    <span style="margin-top: 22px;">
+        {{up}}
+    </span>
+   
+   
+   <style>
+    input, label{
+        margin-top: 22px;
+    }
+   </style>
+   
+   
+    
+    
+   
+    <button type="submit" >Creat    </button>
+</form>
+
+
+
+        </div>
+        {% endblock adblock %}

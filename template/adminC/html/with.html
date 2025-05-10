@@ -1,0 +1,54 @@
+
+{% extends './base.html' %}
+{% load static %}
+{% block link  %}
+
+{% endblock link  %}
+
+
+{% block adblock %}
+        <div class="main__admin__users main__display" title="dd">
+            
+            <span class="bi_head">
+                <h1>All withdrawal Account  </h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="bi bi-arrow-left "></i>
+                    <p>   Back </p>
+                </a>
+            </span>
+            
+            <div class="  main__form">
+                <input type="text" placeholder="Search Here...">
+                <div class="div__hoder">
+                    <b>id</b>
+                    <b>accountnumber</b>
+                    <b>Account name</b>
+                    <b>Bank name</b>
+                    
+                    
+                    <b>Date/time</b>
+                    <b>Statue</b>
+                </div>
+                {% if t %}
+                {% for t in  t %}
+
+                <span class="main__chide r" >
+                    <b>GXB/{{t.uuid}}</b>
+                    <b>{{t.accountnumber}}  </b>
+                    <b>{{t.name}}  </b>
+                    <b>{{t.bankname}}  </b>
+                    <b>{{t.date}}</b>
+                    
+                    <b class="ic">Verified</b>
+                    <small class="over_s" style="width: 90px;">
+                        
+                        <a href="{% url 'deleteaccom' t.uuid  i.uuid %}" title="delete Account"><i class="bi bi-trash"></i></a>
+                       
+                    </small>
+                </span >
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+        {% endblock adblock %}

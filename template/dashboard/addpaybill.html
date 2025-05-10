@@ -1,0 +1,52 @@
+
+
+{% extends './base.html' %}
+{% load static %}
+     
+{% block link  %}
+<link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css'%}">
+{% endblock   %}
+{% block content %}
+
+
+
+<main class="main__body">   
+
+{% include './head.html' %}
+
+
+        <div class="main__holders">
+
+
+            {% include './whead.html' %}
+            <big style="padding: 12px; font-size: x-large; color: rgba(240, 248, 255, 0.736);"
+             class="upper">Add withdrawal  Account  </big>
+
+<form action="" method="post">
+{% csrf_token %}
+   
+   
+    <span>
+        <label for="">Accont Name</label>
+        <input type="text" maxlength="19" required minlength="11"  name="aname" required placeholder="Account Name ">
+    </span>
+    <span>
+        <label for="">Account Number </label>
+        <input type="number" required maxlength="12" minlength="11" name="Anumber" required placeholder="Enter Amount ">
+    </span>
+    <span>
+        <label for="">bank name </label>
+        <input type="text" name="Bname" required placeholder="Enter Bank name ">
+    </span>
+  
+    
+    
+   
+    <button type="submit" >Send </button>
+</form>
+
+
+
+        </div>
+{% endblock content %}
+  

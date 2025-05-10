@@ -1,0 +1,62 @@
+
+{% extends './base.html' %}
+{% load static %}
+{% block link  %}
+
+{% endblock link  %}
+
+
+{% block adblock %}
+        <div class="main__admin__users main__display">
+            
+            <span class="bi_head">
+                <h1>All Transcations </h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="bi bi-arrow-left "></i>
+                    <p>   Back </p>
+                </a>
+            </span>
+            
+            <div class="  main__form">
+                <a href="{% url 'allcheckdelete' user.uuid %}" class="pad col__red">Delete All</a>
+                <input type="text" placeholder="Search Here...">
+                <div class="div__hoder">
+                    <b>User</b>
+                    <b>amount</b>
+                    
+                    
+                    
+                    <b>Date/time</b>
+                    <b>Statue</b>
+                </div>
+                {% if o %}
+                {% for t in  o %}
+                <span class="main__chide r" >
+                    <b>{{t.id}}</b>
+                    <b>USD{{t.amount}}  </b>
+                  
+                    <b>{{t.date}}</b>
+                    {% if t.approved %}
+                    <b class="ic">Active</b>
+                    {% else %}
+                    <b class="iw">pending..</b>
+                    {% endif %}
+                    <small class="over_s">
+                        <img src="" alt="">
+                        <style>
+                            .over_s img{
+                                display: none !important;
+                            }
+
+                        </style>
+                        <a href="{% url 'deletecheck' t.id %}" title="delete Kyc"><i class="bi bi-trash"></i></a>
+                        <a href="{% url 'approvedcheck' t.id %}"  title="Approved file"><i class="bi bi-file-check"></i></a>
+                        <a href="{% url 'sendusercheck' t.id  %}" title="View "><i class="bi bi-eye"></i></a>
+                    </small>
+                </span >
+                {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+        {% endblock adblock %}

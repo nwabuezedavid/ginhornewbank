@@ -1,0 +1,49 @@
+
+    {% extends './base.html' %}
+    {% load static %}
+    {% block link  %}
+<link rel="stylesheet" href="{% static '/dashboardCSS/depositecheck.css' %}">
+
+    {% endblock link  %}
+    
+    
+    {% block adblock %}
+
+        <div class="main__holders">
+            <span class="bi_head df btw wd pad" style="display: flex;">
+                <h1>{{d.uuid}} Transcation Edit </h1>
+                <a href="javascript:history.go(-1)" class="pad df " style="background: red;">
+                    <i class="bi bi-arrow-left "></i>
+                    <p >   Back </p>
+                </a>
+            </span>
+
+<div class="sec_32_h">
+<li class="jd " style="display: flex; ">
+<a  style="margin: 12px ;border-bottom: 2px solid rgba(255, 0, 0, 0.753);" class="cap">
+    Edit Transcations/-{{d.uuid}}  </a>    
+
+</li>
+
+</div>
+
+<form action="" method="post">
+    {% csrf_token %}
+   
+    <span style="margin-top: 22px;margin-bottom: 12px; padding-top: 12px;">
+        
+        {{date.as_p}}
+    </span>
+    
+   
+   
+    
+    
+   
+    <button type="submit" >update    </button>
+</form>
+
+
+
+        </div>
+        {% endblock adblock %}

@@ -1,0 +1,110 @@
+
+
+:root{
+    --bg: rgb(1, 1, 36);
+    --bgw:white;
+    --bgt:rgb(133, 127, 127);
+    --bgt2:rgba(3, 19, 90, 0.493);
+    --brt:#dd2c2c;
+    --bgct:#4ae6c4;  
+    --bx: linear-gradient(to right, #3d3dcf, #000035);
+
+
+
+}
+@mixin centers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+
+
+
+
+.main__display{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-transform: capitalize;
+    .display__1{
+        display: flex;
+        padding: 12px;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+>*{
+    margin-top: 12px;
+}
+    }
+    .display__2{
+        display: flex;
+        padding: 12px;
+        background-color:#000035 ;
+        margin-bottom: 12px;
+        >*{
+            width: fit-content;
+            padding: 12px;
+            margin: 12px;
+            border-bottom: 1px solid red;
+            &:hover{
+                border-bottom: 1px solid rgb(255, 255, 255);
+                
+            }
+        }
+    }
+    .letter{
+        display: flex;
+        padding: 22px;
+        width: 100%;
+        color: #dd2c2c;
+        background: var(--bx);
+    }
+    .dis__last{
+        display: flex;
+        padding: 13px;
+        flex-direction: column;
+       p{
+        color: var(--bgt);
+        margin-top: 12px;
+        }
+    }
+    .form{
+        display: flex;flex-direction: column;
+        width: 100%;
+        padding: 12px;
+        form{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            >*{
+                width: 400px;
+                flex-grow: 1;
+                text-transform: capitalize;
+                margin: 12px;
+                height: 40px;
+                background-color: var(--bgt2);
+                border: none;
+                outline: none;
+                padding: 12px;
+                &::placeholder{
+                    text-transform: capitalize;
+                }
+                &:hover{
+                    &::placeholder{
+                        color: var(--brt);
+                    }
+                }
+            }
+            .btn__s{
+                background: var(--bx);
+                cursor: pointer;
+                border-radius: 9px;
+                &:hover{
+                    color: #dd2c2c;
+                    background: azure;
+                }
+            }
+        }
+    }
+}

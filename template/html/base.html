@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{i.name}}</title>
+    <meta property="og:image" content="{% static 'assets/assets/logo.png' %}">
+    <link rel="stylesheet" href="{% static '/css/uni.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/glorbal.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/bootstrap-icons-1.10.5/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <meta name="description" content="Mainz Bank - Your trusted financial partner providing exceptional banking services including savings accounts, loans, investment opportunities, and more.">
+    <meta name="keywords" content="Mainz Bank, banking services, savings accounts, loans, financial partner, investment opportunities, online banking">
+    <meta name="author" content="Mainz Bank">
+    <meta name="robots" content="index, follow"> 
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Mainz Bank - Trusted Financial Partner">
+    <meta property="og:description" content="Explore Mainz Bank's comprehensive range of banking services designed to meet all your financial needs.">
+    <meta property="og:image" content="https://img.freepik.com/free-vector/global-virtual-currency-sign-techno-concept-background-design_1017-52482.jpg?size=626&ext=jpg&ga=GA1.1.753374989.1717678999&semt=ais_hybrid">
+    <meta property="og:url" content="https://mainzbank.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mainz Bank - Trusted Financial Partner">
+    <meta name="twitter:description" content="Discover Mainz Bank's secure and convenient banking services.">
+    <meta name="twitter:image" content="https://img.freepik.com/free-vector/global-virtual-currency-sign-techno-concept-background-design_1017-52482.jpg?size=626&ext=jpg&ga=GA1.1.753374989.1717678999&semt=ais_hybrid">
+    
+    <!-- Title and Favicon -->
+    <title>Mainz Bank - Trusted Financial Partner</title>
+    {% block link  %}
+
+    {% endblock   %}
+    <link rel="shortcut icon" href="{{i.logo}}" type="image/x-icon">
+      <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <meta name="google-site-verification" content="xZ07b-tAFViFDsRJM0nTBauMPzLUvKftbzTtil4J60k" />
+</head>
+<body>
+</main>
+<style>
+
+.abouthome {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  padding: 22px;
+  height: 100%;
+  min-height: 400px;
+  flex-wrap: wrap;
+}
+.abouthome div {
+  width: 300px;
+  display: flex;
+  flex-grow: 1;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 22px;
+  flex-direction: column;
+}
+.abouthome div big {
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.abouthome div p {
+  font-weight: lighter;
+}
+.abouthome div big {
+  font-size: smaller;
+  margin: 9px;
+}
+.abouthome div b {
+  font-size: 34px;
+}
+.abouthome img {
+  width: 300px;
+  flex-grow: 1;
+  height: 340px;
+}
+</style>
+{% include  './nav.html' %}
+{% block content  %}
+
+{% endblock  %}
+
+{% include  './footer.html' %}
+
+<!-- Smartsupp Live Chat script -->
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '50d62fe8bfd41095e5804c46f115575ab2b1bad3';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+<script type="text/javascript">
+  const videoCon = document.querySelector('.fv')
+
+
+let arrydlifr =['{% static "/assets/assets/main/ICON_VERSION5.mp4" %}',"{% static '/assets/assets/ICON_VERSION8.mp4'%}"]
+let ini = 0
+let htmf = ""
+function slide() {
+htmf = `
+<video src= ${arrydlifr[ini]}  class="sliude"  ></video>
+
+`
+videoCon.innerHTML = htmf
+const sliude = document.querySelector('.sliude')
+sliude.play()
+
+}
+
+slide()
+
+setInterval(() => {
+ini++
+console.log(ini);
+if( ini === arrydlifr.length ){
+
+  ini=0
+}
+slide()
+
+}, 12000);
+
+
+
+
+
+window.addEventListener('scroll',()=>{
+const navi = document.querySelector('.nav')
+navi.classList.toggle('bgd',window.scrollY > 0)
+})
+const btn__bar = document.querySelector('.toggle_bar')
+const product = document.querySelector('.carryo')
+const child = document.querySelector('.carryo span')
+const child2 = document.querySelector('.nav ul')
+let kx = 0
+
+btn__bar.addEventListener('click',()=>{
+child2.classList.toggle('dn')
+child2.style.display ="none"
+kx++
+if (kx == 2 ) {
+  child2.style.display ="flex"
+  kx = 0
+}
+console.log(kx, 'skdkdk');
+
+})
+product.addEventListener('click',()=>{
+child.classList.toggle('df')
+child.style.display ="flex"
+kx++
+if (kx == 2 ) {
+  child.style.display ="none"
+  kx = 0
+}
+console.log(kx, 'skdkdk');
+
+})
+console.log(child );
+console.log(window.innerWidth );
+
+function checkwidth() {
+
+if (window.innerWidth < 980) {
+   btn__bar.style.display ="none"
+}
+}
+setInterval(() => {
+checkwidth()
+}, 3000);
+
+
+</script>
+
+</body>
+</html>

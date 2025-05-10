@@ -1,0 +1,37 @@
+<footer>
+    <main>
+{% load static %}
+<div class="fSE">
+    <img src="{{i.logo}}" alt="" class="logo">
+    <p>We are a value based bank dedicated to building the social finance market. Our goals is to connect capital to enterprises that are building stronger, more sustainable communities, enabling depositors and investors to finance change. </p>
+    <span>
+        <input type="text" name="" placeholder="enter Your Email Here..." id="">
+        <button onclick="alert('Subscribe successfully ')">News Letter </button>
+    </span>
+</div>
+<div class="samedf">
+    <b>company</b>
+    <a href="{% url 'about' %}">about us </a>
+    <a href="{% url 'loan' %}">{{i.name}} loans </a>
+    <a href="{% url 'loginuser' %}">Get Started  </a>
+</div>
+<div class="samedf">
+    <b>quick links</b>
+    <a href="{% url 'transfers' %}">Transfer </a>
+    <a href="{% url 'contact' %}">Contact Us </a>
+
+</div>
+<div class="samedf">
+
+    <b>CONTACT US DIRECTLY</b>
+    <a href="tel:"><i class="bi bi-telephone"></i>{{i.addressLine2}}</a>
+    <a href="tel:{{i.phone}}"><i class="bi bi-geo"></i>{{i.location}}</a>   
+    <a href="email:{{i.email}}"><i class="bi bi-envelop"></i>{{i.email}}</a> 
+    <a href="map:"><i class="bi bi-loaction"></i> We Are 24/7 Hours Available</a>
+
+</div >
+
+</main>
+
+
+</footer>
