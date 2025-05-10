@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd(qg&phv8f!$plsl!p+r0e*_uo8o!tw(h4k!jn+g#*--5@o+*3' 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 EMAIL_HOST = 'mainzbank.com'
 
 EMAIL_HOST_USER = "support@mainzbank.com" 
