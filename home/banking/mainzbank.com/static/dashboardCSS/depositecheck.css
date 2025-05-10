@@ -1,0 +1,125 @@
+:root {
+  --bg: rgb(1, 1, 36);
+  --bgw:white;
+  --bgt:rgb(133, 127, 127);
+  --bgt3:#0c0c0c9f
+  --bgt2:rgba(3, 19, 90, 0.493);
+  --brt:#dd2c2c;
+  --bgct:#4ae6c4;
+  --bx: linear-gradient(to right, #3d3dcf, #000035);
+}
+
+.main__holders {
+  display: flex;
+  flex-direction: column;
+}
+.main__holders .header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+}
+.main__holders .header__top span {
+  font-size: small;
+  margin-bottom: 22px;
+}
+.main__holders .header__top span p {
+  color: var(--bgt);
+}
+.main__holders .header__top a {
+  background: var(--bx);
+  padding: 9px;
+  border-bottom-left-radius: 3px;
+}
+.main__holders .sec_32_h {
+  display: flex;
+  flex-direction: column;
+}
+.main__holders .sec_32_h .jd {
+  background: var(--bx);
+  padding: 12px;
+  margin-bottom: 12px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.main__holders .sec_32_h ul {
+  padding: 12px;
+  width: 100%;
+}
+.main__holders .sec_32_h ul li {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  text-transform: capitalize;
+}
+.main__holders .sec_32_h ul li i {
+  margin-right: 9px;
+  color: #dd2c2c;
+}
+.main__holders .sec_32_h ul > * {
+  margin-top: 12px;
+}
+.main__holders form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 12px;
+}
+.main__holders form span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: none;
+  margin-top: 12px;
+  flex-direction: column;
+}
+.main__holders form span label {
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+.main__holders form span input, .main__holders form span select {
+  padding: 12px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.055);
+  height: -moz-fit-content;
+  height: fit-content;
+  text-transform: capitalize;
+  border: none;
+  border-bottom: 2px solid white;
+}
+.main__holders form span input:hover, .main__holders form span select:hover {
+  border-bottom: 2px solid rgb(226, 21, 21);
+}
+.main__holders form .imges {
+  display: flex;
+  margin-top: 44px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.main__holders form .imges label {
+  position: relative;
+  background-color: #000035;
+  height: 230px;
+  width: 400px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.main__holders form .imges label small {
+  font-size: x-large;
+  padding: 12px;
+}
+.main__holders form .imges label img {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+.main__holders form .imges label input {
+  display: none;
+}
+.main__holders button {
+  background-color: #dd2c2c;
+  color: aliceblue;
+  border: none;
+  padding: 12px;
+  margin-top: 44px;
+}/*# sourceMappingURL=depositecheck.css.map */

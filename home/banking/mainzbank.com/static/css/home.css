@@ -1,0 +1,356 @@
+:root {
+  --bg:rgb(1, 0, 22);
+  --bgw:white;
+  --bgt:rgb(133, 127, 127);
+  --bx: linear-gradient(to right, rgb(61, 61, 207), rgb(0, 0, 53));
+}
+
+.partners {
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 7%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.partners h2 {
+  color: white;
+  font-size: 5ex;
+}
+.partners img {
+  width: 210px;
+  max-width: 230px;
+}
+@media screen and (max-width: 800px) {
+  .partners img {
+    width: 10vw;
+  }
+}
+
+.about {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 4%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.about > * {
+  flex-grow: 1;
+  width: 500px;
+  height: 100%;
+}
+.about .img {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.about .img > * {
+  width: 80%;
+  border-radius: 12px;
+}
+.about .img .d {
+  height: 330px;
+}
+.about .img img {
+  z-index: 999;
+}
+.about .img .overlay {
+  transform: rotate(20deg);
+  background-color: rgb(1, 3, 36);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+}
+.about .main-s {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  height: 300px;
+}
+.about .main-s > * {
+  margin-top: 1%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.about .main-s h3 {
+  display: flex;
+  font-size: larger;
+}
+
+.service {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 4%;
+  margin-top: 122px;
+  padding: 2%;
+}
+.service .sec {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+}
+.service .sec h3 {
+  font-size: 2rem;
+}
+.service .sec big {
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+.service .sec big b {
+  color: rgb(1, 0, 22);
+}
+.service main {
+  display: flex;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.service main div {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 12px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 1px 2px 3px gray;
+  max-width: 100%;
+  flex-grow: 0.4;
+}
+.service main div:hover {
+  background: var(--bx);
+  color: white;
+  border-radius: 12px;
+}
+.service main div:hover > * {
+  color: white;
+}
+.service main div i {
+  font-size: 220%;
+}
+.service main div > * {
+  margin-top: 12px;
+}
+.service main div b {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+big {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+}
+
+.stra {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 12px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.stra big {
+  display: flex;
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-size: 3rem;
+}
+.stra big i {
+  margin-right: 5px;
+}
+.stra big b {
+  color: var(--bg);
+}
+.stra .main___con {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stra .main___con .main__view {
+  display: flex;
+  width: 500px;
+  overflow: hidden;
+  height: auto;
+  max-height: 300px;
+  margin: 12px;
+}
+.stra .main___con .main__view:hover span {
+  transform: translateY(0%);
+}
+.stra .main___con .main__view img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.stra .main___con .main__view span {
+  display: flex;
+  background-color: var(--bg);
+  width: 100%;
+  color: var(--bgw);
+  padding: 11px;
+  font-size: larger;
+  text-transform: capitalize;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fingertip {
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 4pc;
+}
+.fingertip img {
+  width: 550px;
+}
+.fingertip > * {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+}
+.fingertip > * > * {
+  margin-top: 12px;
+}
+.fingertip > * h1 {
+  display: flex;
+  width: 100%;
+  font-size: 3rem;
+  margin-bottom: 12px;
+  color: var(--bg);
+}
+.fingertip > * big {
+  font-size: 120%;
+  text-transform: capitalize;
+}
+.fingertip > * span {
+  font-size: large;
+  text-transform: capitalize;
+}
+.fingertip > * span i {
+  height: 12px;
+  width: 12px;
+  background: var(--bg);
+  color: rgb(0, 247, 255);
+  border-radius: 50%;
+}
+
+.why {
+  display: flex;
+  width: 100%;
+  margin-top: 44px;
+  margin-bottom: 23px;
+  flex-wrap: wrap;
+}
+.why > * {
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  margin-top: 22px;
+}
+.why div p {
+  display: flex;
+  width: 100%;
+  word-wrap: break-word;
+  color: var(--bgt);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+.why div b {
+  font-size: 4rem;
+}
+.why div span {
+  display: flex;
+  font-size: 1.4rem;
+  flex-direction: column;
+  text-transform: capitalize;
+  background: var(--bx);
+  border-radius: 9px;
+  padding: 12px;
+}
+.why div span > * {
+  display: flex;
+  margin-top: 22px;
+  color: var(--bgw);
+}
+.why main {
+  display: flex;
+  padding: 12px;
+}
+.why main h3 {
+  display: flex;
+  font-weight: bolder;
+}
+.why main .header__s {
+  font-size: 3rem;
+  margin-top: 12px;
+}
+.why main .main__B {
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+}
+.why main .main__B > * {
+  margin-top: 9px;
+}
+.why main .main__B h4 {
+  font-weight: bolder;
+  color: var(--bg);
+}
+.why main .main__B article {
+  display: flex;
+  font-style: italic;
+}
+
+.oc {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.oc > * {
+  width: 300px;
+  height: 300px;
+  margin: 12px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+.oc div {
+  cursor: pointer;
+  padding: 12px;
+}
+.oc div > * {
+  margin-bottom: 12px;
+}
+.oc div > *:nth-child(2) {
+  color: var(--bgt);
+  text-transform: capitalize;
+}
+.oc div > *:nth-child(1) {
+  font-weight: bolder;
+}
+.oc div:hover {
+  background: var(--bx);
+}
+.oc div:hover > * {
+  color: white;
+}
+.oc div:hover > * :first-child {
+  margin-bottom: 12px;
+}/*# sourceMappingURL=home.css.map */
