@@ -24,16 +24,13 @@ SECRET_KEY = 'd(qg&phv8f!$plsl!p+r0e*_uo8o!tw(h4k!jn+g#*--5@o+*3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-EMAIL_HOST = 'chestburgbank.com'
-  
-EMAIL_HOST_USER = "support@chestburgbank.com" 
+EMAIL_HOST = 'mainzbank.com'
+
+EMAIL_HOST_USER = "support@mainzbank.com" 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST_PASSWORD = "nwabueze666$" 
 EMAIL_PORT = 465 
-EMAIL_USE_SSL = True 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+EMAIL_USE_SSL = True
 ALLOWED_HOSTS = ["*"]
 
  

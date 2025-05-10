@@ -192,17 +192,7 @@ def loginuser(request):
                     return redirect('disabledaccount')
                 if  Client.objects.filter(user =alluser, approved=False).exists():
                     alluserc = Client.objects.get(user=alluser)
-                    message = f'http://{request.get_host()}/linktoactivate/{alluserc.Tancode}/'
-                    print(message) 
-
-
-                    c={
-                        'a':alluser,
-                        'm':message,
-                        'v':i
-                    }
-                    print('send')
-                    email_sending(request,'mail/email.html',c,f"{i.name} Activation of Email ",email.lower())
+                    login(request, alluserc.user)
 
                     return redirect('Activate')
                 if  password and username  and Client.objects.filter(user= alluser,disabled=False, approved=True, password=password).exists():
@@ -230,50 +220,37 @@ def loginuser(request):
                 else:
                     messages.info(request, 'invalid Detail ')
         elif hidden == "True":
-            try:
-                if request.method =="POST":
-                    usernamex = request.POST['username']
-                    emailx = request.POST['email']
-                    pass2x = request.POST['password']
-                    pass1x  = request.POST.get('password2')
-                    acctype  = request.POST.get('acctype')
-                    Currency  = request.POST.get('Currency')
-                    email = emailx.replace(" ", "")
-                    username = usernamex.replace(" ", "_")
-                    pass1 = pass1x.replace(" ", "")
-                    pass2 = pass2x.replace(" ", "")
-                    
-                    ma = make_password(pass1)
-                    if User.objects.filter(username__icontains=username,email__icontains=email).exists():
-                        messages.error(request, 'User Already exist')
-                        return redirect('loginuser')
+            if request.method =="POST":
+                usernamex = request.POST['username']
+                emailx = request.POST['email']
+                pass2x = request.POST['password']
+                pass1x  = request.POST.get('password2')
+                acctype  = request.POST.get('acctype')
+                Currency  = request.POST.get('Currency')
+                email = emailx.replace(" ", "")
+                username = usernamex.replace(" ", "_")
+                pass1 = pass1x.replace(" ", "")
+                pass2 = pass2x.replace(" ", "")
+                
+                ma = make_password(pass1)
+                if User.objects.filter(username__icontains=username,email__icontains=email).exists():
+                    messages.error(request, 'User Already exist')
+                    return redirect('loginuser')
+                else:
+                    if pass1 == pass2:
+
+                        alluser = User.objects.create(
+                            username=username,  email=email
+                        ) 
+                        
+                        mainuser = Client.objects.create(approved =False,  Currency=Currency,typeAcc = acctype,password = pass1 , uuid = referCode(11),Tancode=referCode(5), AccountNUm = acc(), user= alluser, balance=0,verified=False)
+                        
+                        login(request, alluser)
+                        return redirect('Activate')
                     else:
-                        if pass1 == pass2:
-
-                            alluser = User.objects.create(
-                                username=username,  email=email
-                            ) 
-                            
-                            mainuser = Client.objects.create(approved =False,  Currency=Currency,typeAcc = acctype,password = pass1 , uuid = referCode(30),Tancode=referCode(5), AccountNUm = acc(), user= alluser, balance=0,verified=False)
-                            message = f'http://{request.get_host()}/linktoactivate/{mainuser.Tancode}/'
-                            print(message)
-                            subject = 'Gx-bank Activation Email'
-
-                            c={
-                                'a':mainuser,
-                                'm':message,
-                                'v':i
-                            }
-                           
-                            email_sending(request,'mail/email.html',c,f"{i.name} Activation of Email ",email.lower())
-                            login(request, alluser)
-                            return redirect('Activate')
-                        else:
-                            messages.error(request,'password does not match!!')
-                            return redirect('loginuser')
-            except:
-                messages.error(request,'Sorry something went wrong try again later')
-                return redirect('loginuser')
+                        messages.error(request,'password does not match!!')
+                        return redirect('loginuser')
+            
 
     return render (request, 'html/login.html',c)
 
@@ -285,6 +262,15 @@ def resetpass(request):
     return render(request,'html/fchangedpassword.html',c)
 def Activate(request):
     i = Site.objects.get(uuid=1)
+    mainuser = Client.objects.get(user=request.user)
+    message = f'http://{request.get_host()}/linktoactivate/{mainuser.Tancode}/'
+    c={
+        'a':mainuser,
+        'm':message,
+        'v':i
+    }
+    
+    email_sending(request,'mail/email.html',c,f"{i.name} Activation of Email ",mainuser.user.email.lower())
     c = {
     'i':Site.objects.get(uuid=1),
     }

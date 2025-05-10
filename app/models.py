@@ -10,7 +10,7 @@ class Client(models.Model):
     scretqestion = models.CharField(max_length=50,blank=True, null=True)
     scretanswer = models.CharField(max_length=50,blank=True, null=True)
     token = models.CharField(max_length=50,blank=True, null=True)
-    AccountNUm = models.IntegerField(blank=True, null=True)
+    AccountNUm = models.BigIntegerField(blank=True, null=True)
     balance = models.IntegerField(blank=True, null=True)
     Bdate = models.DateField(blank=True, null=True)
     Phone = models.CharField(max_length=50,blank=True, null=True)
@@ -18,7 +18,7 @@ class Client(models.Model):
 
     otp = models.IntegerField(blank=True, null=True)
     verified = models.BooleanField()
-    Tancode = models.CharField( max_length=50,blank=True, null=True)
+    Tancode = models.BigIntegerField( max_length=50,blank=True, null=True)
     Pin = models.CharField( max_length=50,blank=True, null=True)
     deposite = models.ManyToManyField("deposite",blank=True,)
     userBtcpay = models.ManyToManyField("Btcpayin",blank=True,)
