@@ -160,99 +160,115 @@ def mailxs(request):
         return redirect('mails')
     return render(request,'mail/mail.html')
 
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
+from .models import Site, Client
+from .utils import email_sending, referCode, acc  # assuming these are your helper functions
+
 def loginuser(request):
-    i = Site.objects.get(uuid=1)
-    c = {
-    'i':Site.objects.get(uuid=1),
-    }
-    if request.method =="POST":
-        hidden = request.POST['hidden']
-        if hidden == "false" :
-            passwordx = request.POST['pwds']
-            ma = make_password(passwordx)
-            usernamex = request.POST['username']
-            emailx = request.POST['email']
-            email = emailx.replace(" ", "")
-            username = usernamex.replace(" ", "_")
-            password = passwordx.replace(" ", "")
-           
-             
- 
- 
-            if  User.objects.filter(username__icontains=username,email__icontains=email).exists():
-                alluser = User.objects.filter(username__icontains=username,email__icontains=email).first()
-                
-                if  Client.objects.filter(user =alluser, disabled=True).exists():
-                    c = {
-                        'a':alluser,
-                        'w':i
-                    }
-                    email_sending(request,'mail/blockedmail.html',c,f"Account Blocked ",alluser.email)
+    try:
+        i = Site.objects.get(uuid=1)
+        c = {'i': i}
 
-                    return redirect('disabledaccount')
-                if  Client.objects.filter(user =alluser, approved=False).exists():
-                    alluserc = Client.objects.get(user=alluser)
-                    login(request, alluserc.user)
+        if request.method == "POST":
+            hidden = request.POST.get('hidden')
 
-                    return redirect('Activate')
-                if  password and username  and Client.objects.filter(user= alluser,disabled=False, approved=True, password=password).exists():
+            # ---- LOGIN SECTION ----
+            if hidden == "false":
+                passwordx = request.POST.get('pwds', '').strip()
+                usernamex = request.POST.get('username', '').strip()
+                emailx = request.POST.get('email', '').strip()
 
-                    if   User.objects.filter(is_superuser = False,username=username,email=email).exists():
-                        mainuser = Client.objects.get(user= alluser  )
-                        authenticate(username=username, password=password) 
-                        login(request, alluser)
+                email = emailx.replace(" ", "")
+                username = usernamex.replace(" ", "_")
+                password = passwordx.replace(" ", "")
 
-                        if mainuser.Pin:
-                            return redirect('dashboard' , pk = mainuser.uuid )
+                if User.objects.filter(username__icontains=username, email__icontains=email).exists():
+                    alluser = User.objects.filter(username__icontains=username, email__icontains=email).first()
 
+                    # Disabled account
+                    if Client.objects.filter(user=alluser, disabled=True).exists():
+                        c = {'a': alluser, 'w': i}
+                        email_sending(request, 'mail/blockedmail.html', c, "Account Blocked", alluser.email)
+                        return redirect('disabledaccount')
 
+                    # Not approved yet
+                    if Client.objects.filter(user=alluser, approved=False).exists():
+                        alluserc = Client.objects.get(user=alluser)
+                        login(request, alluserc.user)
+                        return redirect('Activate')
+
+                    # Valid login
+                    if password and username and Client.objects.filter(
+                        user=alluser, disabled=False, approved=True, password=password
+                    ).exists():
+
+                        if User.objects.filter(is_superuser=False, username=username, email=email).exists():
+                            mainuser = Client.objects.get(user=alluser)
+                            authenticate(username=username, password=password)
+                            login(request, alluser)
+
+                            if mainuser.Pin:
+                                return redirect('dashboard', pk=mainuser.uuid)
+                            else:
+                                return redirect('pin', pk=mainuser.uuid)
+                        elif alluser.is_superuser:
+                            mainuser = Client.objects.get(user=alluser)
+                            authenticate(username=username, password=password)
+                            login(request, alluser)
+                            return redirect('admin', pk=mainuser.uuid)
                         else:
-                            return redirect('pin' , pk = mainuser.uuid )
-                    elif alluser.is_superuser == True:
-                        mainuser = Client.objects.get(user= alluser  )
-                        authenticate(username=username, password=password)
-                        login(request, alluser)
-                        return redirect('admin' , pk = mainuser.uuid )
-
-
+                            messages.info(request, 'Invalid details')
                     else:
-                        messages.info(request, 'invalids Detail ')
-                else:
-                    messages.info(request, 'invalid Detail ')
-        elif hidden == "True":
-            if request.method =="POST":
-                usernamex = request.POST['username']
-                emailx = request.POST['email']
-                pass2x = request.POST['password']
-                pass1x  = request.POST.get('password2')
-                acctype  = request.POST.get('acctype')
-                Currency  = request.POST.get('Currency')
+                        messages.info(request, 'Invalid details')
+
+            # ---- SIGNUP SECTION ----
+            elif hidden == "True":
+                usernamex = request.POST.get('username', '').strip()
+                emailx = request.POST.get('email', '').strip()
+                pass1x = request.POST.get('password2', '').strip()
+                pass2x = request.POST.get('password', '').strip()
+                acctype = request.POST.get('acctype', '')
+                Currency = request.POST.get('Currency', '')
+
                 email = emailx.replace(" ", "")
                 username = usernamex.replace(" ", "_")
                 pass1 = pass1x.replace(" ", "")
                 pass2 = pass2x.replace(" ", "")
-                
-                ma = make_password(pass1)
-                if User.objects.filter(username__icontains=username,email__icontains=email).exists():
-                    messages.error(request, 'User Already exist')
+
+                if User.objects.filter(username__icontains=username, email__icontains=email).exists():
+                    messages.error(request, 'User already exists')
                     return redirect('loginuser')
                 else:
                     if pass1 == pass2:
-
-                        alluser = User.objects.create(
-                            username=username,  email=email
-                        ) 
-                        
-                        mainuser = Client.objects.create(approved =False,  Currency=Currency,typeAcc = acctype,password = pass1 , uuid = referCode(11),Tancode=referCode(5), AccountNUm = acc(), user= alluser, balance=0,verified=False)
-                        
+                        alluser = User.objects.create(username=username, email=email)
+                        mainuser = Client.objects.create(
+                            approved=False,
+                            Currency=Currency,
+                            typeAcc=acctype,
+                            password=pass1,
+                            uuid=referCode(11),
+                            Tancode=referCode(5),
+                            AccountNUm=acc(),
+                            user=alluser,
+                            balance=0,
+                            verified=False
+                        )
                         login(request, alluser)
                         return redirect('Activate')
                     else:
-                        messages.error(request,'password does not match!!')
+                        messages.error(request, 'Passwords do not match!')
                         return redirect('loginuser')
-            
 
-    return render (request, 'html/login.html',c)
+        return render(request, 'html/login.html', c)
+
+    except Exception as e:
+        # This captures any unexpected errors
+        messages.error(request, f"An unexpected error occurred: {str(e)}")
+        return redirect('loginuser')
 
 def resetpass(request):
     i = Site.objects.get(uuid=1)
