@@ -160,14 +160,9 @@ def mailxs(request):
         return redirect('mails')
     return render(request,'mail/mail.html')
 
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.contrib.auth import authenticate, login
+ 
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import User
-from .models import Site, Client
-from .utils import email_sending, referCode, acc  # assuming these are your helper functions
-
+  # assuming these are your helper functions
 def loginuser(request):
     try:
         i = Site.objects.get(uuid=1)
